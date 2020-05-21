@@ -6,7 +6,7 @@ Sima
 - statistika + email
 
 Petra
-- gulicka
+- gulicka DONE
 - log,csv,pdf
 - api
 - canvas
