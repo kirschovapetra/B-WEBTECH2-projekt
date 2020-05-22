@@ -7,7 +7,7 @@ Sima
 
 Petra
 - gulicka DONE
-- log,csv,pdf
+- log,csv,pdf DONE
 - api
 - canvas
 

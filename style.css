@@ -1,0 +1,9 @@
+#animation-div {
+    width:40%;
+}
+#animation{
+    border:2px solid black;
+}
+label,input{
+    margin:5px;
+}

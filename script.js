@@ -1,4 +1,3 @@
-// document.getElementById("ball").setAttribute('cx', 0.25*600+25+4.5+"px");
 
 var times = [];
 var positions = [];
@@ -7,9 +6,6 @@ var newInput = [0,0,0,0];
 var index = 0;
 var interval = null;
 var alreadyPlayed = false;
-//od 0 do 0.97
-//document.getElementById("ball").setAttribute('cx', 0.25*600+25+9+"px");
-
 
 function plot(){
     var trace1 = {
@@ -47,15 +43,20 @@ function plot(){
     Plotly.newPlot('myDiv2', data2, layout2);
 }
 
-
 function changePosition(){
+    $('#positionInput').tooltip({trigger:"manual"});
+
+    $('#positionInput').tooltip('hide');
+
     var position = document.getElementById("positionInput").value;
-    if (position != null) {
+    if (position != null && !isNaN(position) && position>=0 && position<=100) {
+
+        position/=100;
+
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
                 var data = JSON.parse(this.responseText);
-                console.log(data.newInput)
                 newInput = data.newInput;
                 positions = data.positions;
                 angles = data.angles;
@@ -65,24 +66,23 @@ function changePosition(){
                 index = 0;
                 alreadyPlayed = false;
                 interval = setInterval(animate,30);
-
             }
         };
         var url = "octave.php?position=" + position+"&newInput="+JSON.stringify(newInput);
-
+        console.log(url);
         xhttp.open("GET", url, true);
         xhttp.send();
     }
+    else {
+        $('#positionInput').tooltip('show');
+    }
 }
 
-function rad2deg(radians)
-{
-    var pi = Math.PI;
-    return radians * (180/pi);
+function rad2deg(radians){
+    return radians * (180/Math.PI);
 }
 
 function animate(){
-    //1m ... 600px
 
     if(index >= positions.length){
         index = 0;
@@ -93,14 +93,24 @@ function animate(){
     if (!alreadyPlayed) {
         var translation = positions[index] * 600 + 25 + 9;
         var rotation = rad2deg(angles[index]);
-       // var rotation = Math.PI/6;
 
         document.getElementById("ballbeam").style.transformOrigin = "left center";
         document.getElementById("ballbeam").style.transform = "rotate("+rotation*100+"deg)";
         document.getElementById("ball").setAttribute('cx', translation + "px");
-
-        console.log(rotation);
-        // console.log("time: " + (index / 100).toFixed(2) + " index: " + index + " x:" + translation);
         index++;
     }
 }
+
+function toggle(check,target) {
+    var targets = target.split(",");
+
+     if (check.checked){
+         for (var i in targets)
+             document.getElementById(targets[i]).style.display="block";
+    }
+    else {
+        for (var i in targets)
+            document.getElementById(targets[i]).style.display="none";
+    }
+}
+
