@@ -9,7 +9,6 @@ Petra
 - gulicka DONE
 - log,csv,pdf DONE
 - api
-- canvas
 
 Veronika
 - lietadlo

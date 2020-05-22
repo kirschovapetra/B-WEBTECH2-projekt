@@ -1,27 +1,34 @@
 <?php
-//https://www.codexworld.com/export-data-to-csv-file-using-php-mysql/
+//export tabulky "logs" do csv [Petra]
+
 include 'config.php';
 
+//nacitanie udajov z databazy
 $query = $db->query("SELECT * FROM logs ORDER BY id DESC");
-$rows = $query->fetchAll();
-if(count($rows) > 0){
-    $delimiter = ",";
-    $filename = "logs_" . date('Y-m-d') . ".csv";
-    $f = fopen('php://memory', 'w');
+$results = $query->fetchAll();
 
-    $columns = array('id', 'timestamp',"command", 'status', 'error_info');
-    fputcsv($f, $columns, $delimiter);
 
-    foreach($rows as $row){
-        $rowArray = array($row['id'], $row['timestamp'], $row['command'], $row['status'], $row['error_info']);
-        fputcsv($f, $rowArray, $delimiter);
+//https://www.codexworld.com/export-data-to-csv-file-using-php-mysql/
+if(count($results) > 0){
+    //otvorenie suboru
+    $f = fopen("php://memory", "w");
+
+    //zapis headeru do csv
+    $columns = array("id", "timestamp","command", "status", "error_info");
+    fputcsv($f, $columns, ",");
+
+    //zapis riadkov do csv
+    foreach($results as $result){
+        $row = array($result['id'], $result['timestamp'], $result['command'], $result['status'], $result['error_info']);
+        fputcsv($f, $row, ",");
     }
 
-    fseek($f, 0);
+    fseek($f, 0); //posun na zaciatok
 
-    header('Content-Type: text/csv');
-    header('Content-Disposition: attachment; filename="' . $filename . '";');
-
+    //stiahnutie suboru
+    header("Content-Type: text/csv");
+    $today = date('Y-m-d');
+    header("Content-Disposition: attachment; filename=logs_$today.csv;");
     fpassthru($f);
 }
 exit;

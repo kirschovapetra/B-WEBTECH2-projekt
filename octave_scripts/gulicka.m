@@ -25,24 +25,13 @@ function getResult(r,input)
 
     sys = ss(A-B*K,B,C,D);
 
-
     t = 0:0.01:5;
-%    t = 0:0.01:0.05;
 
-%    r =0.25; - metre
-
-%    initRychlost=0;
-%    initZrychlenie=0;
     [y,t,x]=lsim(N*sys,r*ones(size(t)),t,input);
-%  [y,t,x]=lsim(N*sys,r*ones(size(t)),t,[initRychlost;0;initZrychlenie;0]);
-%
 
-format long
-disp(x(size(x,1),:)')
-disp([N*x(:,1),t,x(:,3)])
-
-%%   r =0.5;
-  % [y,t,x]=lsim(N*sys,r*ones(size(t)),t,x(size(x,1),:));
+    format long
+    disp(x(size(x,1),:)')
+    disp([N*x(:,1),t,x(:,3)])
 
 endfunction
 

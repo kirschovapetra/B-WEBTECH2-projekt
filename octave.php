@@ -18,13 +18,6 @@ function logStatus($command,$status){
     $db->exec($query);
 }
 
-function exportToCSV(){
-    //todo
-}
-
-function exportToPDF(){
-    //todo
-}
 
 if (isset($_GET["position"]) && isset($_GET["newInput"])) {
     $r = $_GET['position'];
@@ -38,6 +31,8 @@ if (isset($_GET["position"]) && isset($_GET["newInput"])) {
     $positions = array();
     $times = array();
     $angles = array();
+
+
 
     $newInput = array();
     foreach ($output as $id => $row) {
@@ -64,6 +59,11 @@ if (isset($_GET["position"]) && isset($_GET["newInput"])) {
     $out["times"] = $times;
     $out["angles"] = $angles;
     $out["newInput"] = $newInput;
+
+//
+//    echo "<pre>";
+//    var_dump($out);
+//    echo "</pre>";
 
     echo json_encode($out);
 }
