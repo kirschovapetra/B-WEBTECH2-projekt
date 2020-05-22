@@ -9,7 +9,7 @@ var interval = null;
 var alreadyPlayed = false;
 
 //vykreslenie grafov
-function plot(){
+function plot(lang){
     var trace1 = {
         x: times,
         y: positions,
@@ -30,22 +30,60 @@ function plot(){
     var data1 = [trace1];
     var data2 = [trace2];
 
-    var layout1 = {
-        title:'Poloha guličky'
-    };
-    var layout2 = {
-        title:'Výchylka uhla v radiánoch',
-        yaxis: {
-            showexponent: 'all',
-            exponentformat: 'e'
-        }
-    };
+    var layout1,layout2;
+
+    if (lang === 'en'){
+        layout1 = {
+            title:'Ball position',
+            xaxis:{
+                title:"Time [s]"
+            },
+            yaxis:{
+                title:"Position [m]"
+            }
+        };
+        layout2 = {
+            title:'Beam angle in radians',
+            xaxis:{
+                title:"Time [s]"
+            },
+            yaxis: {
+                showexponent: 'all',
+                exponentformat: 'e',
+                title:"Angle [s]"
+            }
+        };
+    }
+    else {
+        layout1 = {
+            title:'Poloha guličky',
+            xaxis:{
+                title:"Čas [s]"
+            },
+            yaxis:{
+                title:"Poloha [m]"
+            }
+        };
+        layout2 = {
+            title:'Výchylka uhla v radiánoch',
+            xaxis:{
+                title:"Čas [s]"
+            },
+            yaxis: {
+                showexponent: 'all',
+                exponentformat: 'e',
+                title:"Uhol [rad]"
+            }
+        };
+    }
+
+
 
     Plotly.newPlot('positionGraph', data1, layout1);
     Plotly.newPlot('angleGraph', data2, layout2);
 }
 
-function changePosition(){
+function changePosition(lang){
     //tooltip - defaultne nie je viditelny
     $('#positionInput').tooltip({trigger:"manual"}).tooltip('hide');
 
@@ -69,7 +107,7 @@ function changePosition(){
                 angles = data.angles;
                 times = data.times;
 
-                plot(); //grafy
+                plot(lang); //grafy
 
                 //spustenie casovaca - posuvanie gulicky
                 index = 0;

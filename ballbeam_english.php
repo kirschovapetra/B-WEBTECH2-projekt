@@ -8,7 +8,7 @@ require "config.php";
 <html lang="sk">
     <head>
         <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>Gulička na tyči</title>
+        <title>Ball & Beam</title>
 
         <!-- css -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
@@ -22,9 +22,9 @@ require "config.php";
         <script src="script.js"></script>
     </head>
 
-    <body onload="changePosition('sk')">
+    <body onload="changePosition('en')">
         <header>
-            <h1>GULIČKA NA TYČI</h1>
+            <h1>BALL & BEAM</h1>
             <nav class="navbar navbar-expand-lg justify-content-center">
                 <ul class="nav navbar-nav">
                     <li class="nav-item"><a href="index.php" class="nav-link">SK</a></li>
@@ -35,14 +35,14 @@ require "config.php";
 
         <!-- vstup -->
         <div class="d-flex justify-content-center my-5 align-content-center flex-wrap">
-                <label for="position">Poloha guličky (0 - 100 cm) </label>
-                <input type="number" name="position" id="positionInput" value="0"  data-placement="bottom" title="Platné hodnoty: 0 - 100" onchange="changePosition('sk')">
+                <label for="position">Ball position (0 - 100 cm) </label>
+                <input type="number" name="position" id="positionInput" value="0"  data-placement="bottom" title="Range: 0 - 100" onchange="changePosition('en')">
                 <input type="checkbox" name="animationCheck" id="animationCheck" onchange="toggle(this,'animation-div')" checked>
-                <label for="animationCheck">Zobraziť animáciu </label>
+                <label for="animationCheck">Show animation </label>
                 <input type="checkbox" name="graphsCheck" id="graphsCheck" onchange="toggle(this,'positionGraph,angleGraph')" checked>
-                <label for="graphsCheck">Zobraziť grafy </label>
-                <a href="exportToCSV.php"><input type="submit" name="exportCSV" id="exportCSV" value="Export logov do CSV"></a>
-                <a href="exportToPDF.php"> <input type="submit" name="exportCSV" id="exportCSV" value="Export logov do PDF"></a>
+                <label for="graphsCheck">Show graphs </label>
+                <a href="exportToCSV.php"><input type="submit" name="exportCSV" id="exportCSV" value="Export logs to CSV"></a>
+                <a href="exportToPDF.php"> <input type="submit" name="exportCSV" id="exportCSV" value="Export logs to PDF"></a>
         </div>
 
         <!-- animacia -->
@@ -68,8 +68,8 @@ require "config.php";
 
         <footer class="page-footer font-small mt-5">
             <div class="footer-copyright text-center py-3">
-            Copyright &copy; 2020 Simona Lopatniková, Petra Kirschová, Matúš Hudák, Veronika Szabóová<br>
-            Fakulta elektrotechniky a informatiky Slovenskej technickej univerzity v Bratislave
+                Copyright &copy; 2020 Simona Lopatniková, Petra Kirschová, Matúš Hudák, Veronika Szabóová<br>
+                Faculty of Electrical Engineering and Information Technology STU in Bratislava
             </div>
         </footer>
 
