@@ -8,7 +8,7 @@ Sima
 Petra
 - gulicka DONE
 - log,csv,pdf DONE
-- api
+- api DONE
 
 Veronika
 - lietadlo
