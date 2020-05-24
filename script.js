@@ -50,7 +50,7 @@ function plot(lang){
             yaxis: {
                 showexponent: 'all',
                 exponentformat: 'e',
-                title:"Angle [s]"
+                title:"Angle [rad]"
             }
         };
     }
@@ -84,6 +84,8 @@ function plot(lang){
 }
 
 function changePosition(lang){
+    var endpoint = "http://147.175.121.210:8056/zaver_zad/octave/api/animation";
+
     //tooltip - defaultne nie je viditelny
     $('#positionInput').tooltip({trigger:"manual"}).tooltip('hide');
 
@@ -99,7 +101,7 @@ function changePosition(lang){
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-                //nacitanie dat z api
+                //nacitanie dat z octave
                 var data = JSON.parse(this.responseText);
 
                 newInput = data.newInput;
@@ -116,8 +118,9 @@ function changePosition(lang){
             }
         };
 
-        //get request na api
-        var url = "octave.php?position=" + position+"&newInput="+JSON.stringify(newInput);
+        //get request na octave api
+        var url = endpoint+"?type=ballbeam&position=" + position + "&newInput=" + JSON.stringify(newInput);
+        console.log(url);
         xhttp.open("GET", url, true);
         xhttp.send();
     }
@@ -142,8 +145,8 @@ function move(){
     }
 
     if (!alreadyPlayed) {
-        var translation = positions[index] * 600 + 25 + 9; //hodnota z api upravena aby sa zmestila do svg
-        var rotation = rad2deg(angles[index]); //hodnota z api
+        var translation = positions[index] * 600 + 25 + 9; //hodnota z octave upravena aby sa zmestila do svg
+        var rotation = rad2deg(angles[index]); //hodnota z octave
 
         document.getElementById("ballbeam").style.transformOrigin = "left center"; //bod rotacie tyce
         document.getElementById("ballbeam").style.transform = "rotate("+rotation*100+"deg)"; //rotacia
