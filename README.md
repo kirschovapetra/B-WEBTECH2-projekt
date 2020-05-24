@@ -6,10 +6,9 @@ Sima
 - statistika + email
 
 Petra
-- gulicka
-- log,csv,pdf
+- gulicka DONE
+- log,csv,pdf DONE
 - api
-- canvas
 
 Veronika
 - lietadlo
