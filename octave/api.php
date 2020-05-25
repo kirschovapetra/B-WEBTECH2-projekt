@@ -51,7 +51,10 @@ function getBallBeamData(){
         //spustenie prikazu v octave
         $command = "octave $path/gulicka.m $r $newInput[0] $newInput[1] $newInput[2] $newInput[3]";
         exec($command, $octaveOutput, $returnVal);
-
+//
+//        echo "<pre>";
+//        var_dump($_GET['newInput']);
+//        echo "</pre>";
         //zapis logu do databazy
         logStatus($command,empty($octaveOutput));
 
@@ -88,6 +91,7 @@ function getBallBeamData(){
         $out["times"] = $times;
         $out["angles"] = $angles;
         $out["newInput"] = $newInput;
+
 
         //vypis
         echo json_encode($out);
