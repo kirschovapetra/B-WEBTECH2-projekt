@@ -1,5 +1,5 @@
 #animation-div {
-    width:40%;
+    width:50%;
 }
 #animation{
     border:2px solid black;
@@ -11,4 +11,16 @@ label,input{
 h1 {
     text-align: center;
 }
+header{
+    padding-top:8px;
+}
 
+@media screen and (max-width: 1100px) {
+    #animation-div {
+        width: 80%;
+    }
+}
+
+nav {
+    text-align: center;
+}

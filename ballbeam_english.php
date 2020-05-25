@@ -23,29 +23,34 @@ require "config.php";
     </head>
 
     <body onload="changePosition('en')">
-        <header>
+    <header class="navbar-light bg-light">
             <h1>BALL & BEAM</h1>
-            <nav class="navbar navbar-expand-lg justify-content-center">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-center">
                 <ul class="nav navbar-nav">
                     <li class="nav-item"><a href="index_english.php" class="nav-link">HOME</a></li>
                     <li class="active nav-item"><a href="ballbeam_english.php" class="nav-link">BALL</a></li>
                     <li class="nav-item"><a href="#" class="nav-link">PLANE</a></li>
                     <li class="nav-item"><a href="#" class="nav-link">PENDULUM</a></li>
                     <li class="nav-item"><a href="#" class="nav-link">CAR</a></li>
+                    <li class="nav-item"><a href="ballbeam.php" class="nav-link">SK</a></li>
                 </ul>
             </nav>
         </header>
 
         <!-- vstup -->
-        <div class="d-flex justify-content-center my-5 align-content-center flex-wrap">
-                <label for="position">Ball position (0 - 100 cm) </label>
-                <input type="number" name="position" id="positionInput" value="0"  data-placement="bottom" title="Range: 0 - 100" onchange="changePosition('en')">
-                <input type="checkbox" name="animationCheck" id="animationCheck" onchange="toggle(this,'animation-div')" checked>
-                <label for="animationCheck">Show animation </label>
-                <input type="checkbox" name="graphsCheck" id="graphsCheck" onchange="toggle(this,'positionGraph,angleGraph')" checked>
-                <label for="graphsCheck">Show graphs </label>
-                <a href="exportToCSV.php"><input type="submit" name="exportCSV" id="exportCSV" value="Export logs to CSV"></a>
-                <a href="exportToPDF.php"> <input type="submit" name="exportCSV" id="exportCSV" value="Export logs to PDF"></a>
+        <div class="d-flex justify-content-center my-5 align-content-center flex-wrap form-inline">
+            <div class="form-group">
+                <label for="position" class="control-label"><b>Ball position (0 - 100 cm):</b> </label>
+                <input class="form-control" type="number" name="position" id="positionInput" value="0"  data-placement="bottom" title="Range: 0 - 100" onchange="changePosition('en')">
+            </div>
+            <div class="form-group">
+                <div class="checkbox-inline">
+                    <label class="control-label"><input type="checkbox"  name="animationCheck" id="animationCheck" onchange="toggle(this,'animation-div')" checked>Show animation</label>
+                </div>
+                <div class="checkbox-inline">
+                    <label class="control-label"><input type="checkbox" name="graphsCheck" id="graphsCheck" onchange="toggle(this,'positionGraph,angleGraph')" checked>Show graphs</label>
+                </div>
+            </div>
         </div>
 
         <!-- animacia -->
@@ -69,7 +74,7 @@ require "config.php";
         </div>
 
 
-        <footer class="page-footer font-small mt-5">
+        <footer class="page-footer font-small mt-5 bg-light">
             <div class="footer-copyright text-center py-3">
                 Copyright &copy; 2020 Simona Lopatniková, Petra Kirschová, Matúš Hudák, Veronika Szabóová<br>
                 Faculty of Electrical Engineering and Information Technology STU in Bratislava
