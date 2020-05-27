@@ -108,8 +108,6 @@ $valid = ($key == $apiKey);
                 echo "toggleVisibility($encodedValid,'valid-key-show');";
                 echo "changePosition('sk',$encodedValid);";
                 echo "</script>";
-
-
             }
         ?>
 

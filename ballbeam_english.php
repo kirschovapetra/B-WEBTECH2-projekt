@@ -1,9 +1,10 @@
-<!-- Ball & Beam [Petra] -->
-
 <?php
 require "config.php";
-?>
+$key = isset($_POST['apiKey'])? $_POST['apiKey'] : "";
 
+$valid = ($key == $apiKey);
+?>
+<!-- Ball & Beam [Petra] -->
 <!DOCTYPE html>
 <html lang="sk">
     <head>
@@ -22,7 +23,7 @@ require "config.php";
         <script src="ballbeam_script.js"></script>
     </head>
 
-    <body onload="changePosition('en')">
+    <body>
     <header class="navbar-light bg-light">
             <h1>BALL & BEAM</h1>
             <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-center">
@@ -38,24 +39,38 @@ require "config.php";
         </header>
 
         <!-- vstup -->
+    <div class="d-flex justify-content-center align-content-center flex-wrap flex-column">
+
         <div class="d-flex justify-content-center my-5 align-content-center flex-wrap form-inline">
+
+            <form class="form-group" action="ballbeam_english.php" method="POST">
+                <label for="position" class="control-label"><b>API key: </b> </label>
+                <input class="form-control" type="text" name="apiKey" id="apiKey" value="<?=$key?>">
+                <input type="submit" class="btn btn-primary" name="apiKeySubmit" id="apiKeySubmit" value="OK">
+            </form>
+
+        </div>
+
+        <div class="valid-key-show d-flex justify-content-center my-5 align-content-center flex-wrap form-inline">
             <div class="form-group">
                 <label for="position" class="control-label"><b>Ball position (0 - 100 cm):</b> </label>
-                <input class="form-control" type="number" name="position" id="positionInput" value="0"  data-placement="bottom" title="Range: 0 - 100" onchange="changePosition('en')">
+                <input class="form-control" type="number" name="position" id="positionInput" value="0"  data-placement="bottom" title="Range: 0 - 100" onchange="changePosition('en',<?=$valid?>)">
             </div>
             <div class="form-group">
                 <div class="checkbox-inline">
-                    <label class="control-label"><input type="checkbox"  name="animationCheck" id="animationCheck" onchange="toggle(this,'animation-div')" checked>Show animation</label>
+                    <label class="control-label"><input type="checkbox"  name="animationCheck" id="animationCheck" onchange="toggleDisplay(this.checked,'animation-toggle')" checked>Show animation</label>
                 </div>
                 <div class="checkbox-inline">
-                    <label class="control-label"><input type="checkbox" name="graphsCheck" id="graphsCheck" onchange="toggle(this,'positionGraph,angleGraph')" checked>Show graphs</label>
+                    <label class="control-label"><input type="checkbox" name="graphsCheck" id="graphsCheck" onchange="toggleDisplay(this.checked,'graph-toggle')" checked>Show graphs</label>
                 </div>
             </div>
         </div>
+    </div>
+
 
         <!-- animacia -->
         <div class="d-flex justify-content-center">
-            <div id="animation-div">
+            <div id="animation-div"  class="animation-toggle valid-key-show">
                 <svg viewBox="0 0 700 400" preserveAspectRatio="xMinYMin" id="animation">
                     <g id="ballbeam">
                         <rect id="beam" x="0" y="200" width="675" height="10" fill="lightblue"/>
@@ -69,9 +84,21 @@ require "config.php";
 
         <!-- grafy -->
         <div class="d-flex justify-content-center" id="graphs-container">
-            <div id="positionGraph"></div>
-            <div id="angleGraph"></div>
+            <div class="graph-toggle valid-key-show" id="positionGraph"></div>
+            <div class="graph-toggle valid-key-show" id="angleGraph"></div>
         </div>
+
+        <?php
+            if (isset($_POST["apiKeySubmit"])){
+                $key = $_POST["apiKey"];
+                $valid = ($key == $apiKey);
+                $encodedValid = json_encode($valid);
+                echo "<script>";
+                echo "toggleVisibility($encodedValid,'valid-key-show');";
+                echo "changePosition('en',$encodedValid);";
+                echo "</script>";
+            }
+        ?>
 
 
         <footer class="page-footer font-small mt-5 bg-light">
