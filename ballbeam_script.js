@@ -83,51 +83,54 @@ function plot(lang){
     Plotly.newPlot('angleGraph', data2, layout2);
 }
 
-function changePosition(lang){
+function changePosition(lang,keyIsValid){
     var endpoint = "http://147.175.121.210:8056/zaver_zad/octave/api/animation";
 
-    //tooltip - defaultne nie je viditelny
-    $('#positionInput').tooltip({trigger:"manual"}).tooltip('hide');
+   if (keyIsValid == true) {
+        var apiKey = document.getElementById("apiKey").value;
 
-    //nacitanie vstupu
-    var position = document.getElementById("positionInput").value;
+       //tooltip - defaultne nie je viditelny
+       $('#positionInput').tooltip({trigger: "manual"}).tooltip('hide');
 
-    //rozsah pozicie je 0-100
-    if (!isNaN(position) && position>=0 && position<=100) {
+       //nacitanie vstupu
+       var position = document.getElementById("positionInput").value;
 
-        //prevod pozicie z cm na m
-        position/=100;
+       //rozsah pozicie je 0-100
+       if (!isNaN(position) && position >= 0 && position <= 100) {
 
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-                //nacitanie dat z octave
-                var data = JSON.parse(this.responseText);
+           //prevod pozicie z cm na m
+           position /= 100;
 
-                newInput = data.newInput;
-                positions = data.positions;
-                angles = data.angles;
-                times = data.times;
+           var xhttp = new XMLHttpRequest();
+           xhttp.onreadystatechange = function () {
+               if (this.readyState == 4 && this.status == 200) {
+                   //nacitanie dat z octave
+                   var data = JSON.parse(this.responseText);
 
-                plot(lang); //grafy
+                   newInput = data.newInput;
+                   positions = data.positions;
+                   angles = data.angles;
+                   times = data.times;
 
-                //spustenie casovaca - posuvanie gulicky
-                index = 0;
-                alreadyPlayed = false;
-                interval = setInterval(move,30);
-            }
-        };
+                   plot(lang); //grafy
 
-        //get request na octave api
-        var url = endpoint+"?type=ballbeam&position=" + position + "&newInput=" + JSON.stringify(newInput);
-        console.log(url);
-        xhttp.open("GET", url, true);
-        xhttp.send();
-    }
-    else {
-        //tooltip sa zobrazi ked sa zadaju nespravne hodnoty
-        $('#positionInput').tooltip('show');
-    }
+                   //spustenie casovaca - posuvanie gulicky
+                   index = 0;
+                   alreadyPlayed = false;
+                   interval = setInterval(move, 30);
+               }
+           };
+
+           //get request na octave api
+           var url = endpoint + "?type=ballbeam&position=" + position + "&newInput=" + JSON.stringify(newInput) + "&apiKey=" + apiKey;
+           console.log(url);
+           xhttp.open("GET", url, true);
+           xhttp.send();
+       } else {
+           //tooltip sa zobrazi ked sa zadaju nespravne hodnoty
+           $('#positionInput').tooltip('show');
+       }
+   }
 }
 
 //prevod z radianov na stupne
@@ -156,16 +159,28 @@ function move(){
 }
 
 //prepinanie zobrazenia animacie a grafov
-function toggle(check,target) {
-    var targets = target.split(","); //target moze mat aj viacero poloziek oddelenych ciarkou (napr. 'positionGraph,angleGraph')
+function toggleDisplay(show,target) {
+    var targets = document.getElementsByClassName(target);
 
-     if (check.checked){
-         for (var i in targets)
-             document.getElementById(targets[i]).style.display="block";
+     if (show){
+         for (var i = 0; i < targets.length; i++)
+             targets[i].style.display="block";
     }
     else {
-        for (var i in targets)
-            document.getElementById(targets[i]).style.display="none";
+         for (var i = 0; i < targets.length; i++)
+            targets[i].style.display="none";
     }
 }
 
+function toggleVisibility(show,target) {
+    var targets = document.getElementsByClassName(target);
+
+    if (show){
+        for (var i = 0; i < targets.length; i++)
+            targets[i].style.visibility="visible";
+    }
+    else {
+        for (var i = 0; i < targets.length; i++)
+            targets[i].style.visibility="hidden";
+    }
+}

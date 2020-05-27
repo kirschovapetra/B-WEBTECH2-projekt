@@ -24,3 +24,7 @@ header{
 nav {
     text-align: center;
 }
+
+.valid-key-show {
+    visibility: hidden;
+}
