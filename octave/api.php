@@ -22,27 +22,23 @@ if (isset($_GET["apiKey"]) && $_GET["apiKey"] == "1234") {
     }
 
 
-    function executeAnimation()
-    {
+    function executeAnimation()    {
 
         if (isset($_GET["type"])) {
             if ($_GET["type"] == "ballbeam") { // [Petra]
                 getBallBeamData();
-            } 
-            else if ($_GET["type"] == "plane") {
+            } else if ($_GET["type"] == "plane") {
                 //TODO (Veronika)
-            } 
-            else if ($_GET["type"] == "car") {
+            } else if ($_GET["type"] == "car") {
                 //TODO (Matus)
+            } else if ($_GET["type"] == "pendulum") { // [Simona]
+                getInvertedPendulumData();
             }
-            else if ($_GET["type"] == "pendulum") { // [Simona]
-              getInvertedPendulumData();
-            }
+        }
     }
 
 //gulicka na tyci [Petra]
-    function getBallBeamData()
-    {
+    function getBallBeamData()    {
         global $path;
 
         if (isset($_GET["position"]) && isset($_GET["newInput"])) {
@@ -98,9 +94,9 @@ if (isset($_GET["apiKey"]) && $_GET["apiKey"] == "1234") {
         }
     }
 
+
 //zapis logov do databazy [Petra]
-    function logStatus($command, $status)
-    {
+    function logStatus($command, $status)    {
         global $db;
         $timestamp = date("Y-m-d H:i:s");
 
@@ -115,9 +111,6 @@ if (isset($_GET["apiKey"]) && $_GET["apiKey"] == "1234") {
         }
         $db->exec($query);
     }
-
-    $db->exec($query);
-}
 
 // inverzne kyvadlo [Simona]
 function getInvertedPendulumData(){

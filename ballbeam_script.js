@@ -84,7 +84,7 @@ function plot(lang){
 }
 
 function changePosition(lang,keyIsValid){
-    var endpoint = "http://147.175.121.210:8056/zaver_zad/octave/api/animation";
+    var endpoint = "octave/api/animation";
 
    if (keyIsValid == true) {
         var apiKey = document.getElementById("apiKey").value;
