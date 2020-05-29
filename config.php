@@ -17,4 +17,6 @@ $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 //$path = "/home/xkirschova/public_html/zaver_zad/octave_scripts";
 $path = "../octave_scripts";
 
+$apiKey = "1234";
+
 date_default_timezone_set("Europe/Bratislava");

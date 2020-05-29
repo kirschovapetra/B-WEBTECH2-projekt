@@ -35,8 +35,8 @@ require "config.php";
         </header>
 
         <div class="d-flex justify-content-center">
-            <a href="exportToCSV.php"><input type="submit" class="btn btn-primary" name="exportCSV" id="exportCSV" value="Export logs to CSV"></a>
-            <a href="exportToPDF.php"> <input type="submit" class="btn btn-primary" name="exportPDF" id="exportPDF" value="Export logs to PDF"></a>
+            <a href="exportToCSV.php?lang=en"><input type="submit" class="btn btn-primary" name="exportCSV" id="exportCSV" value="Export logs to CSV"></a>
+            <a href="exportToPDF.php?lang=en"> <input type="submit" class="btn btn-primary" name="exportPDF" id="exportPDF" value="Export logs to PDF"></a>
         </div>
 
         <footer class="page-footer font-small mt-5">
