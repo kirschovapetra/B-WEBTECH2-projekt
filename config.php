@@ -14,6 +14,7 @@ $dbname = "Skuska_DB";
 $db = new PDO("mysql:host=$hostname;dbname=$dbname;charset=utf8", $username, $password);
 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-$path = "/home/xkirschova/public_html/zaver_zad/octave_scripts";
+//$path = "/home/xkirschova/public_html/zaver_zad/octave_scripts";
+$path = "../octave_scripts";
 
 date_default_timezone_set("Europe/Bratislava");
