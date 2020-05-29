@@ -103,11 +103,11 @@ function prepniZobrazenie(id){
 
 function spracovanieR() {
     var r = parseFloat(document.getElementById("hodnotaR").value);
-
+    console.log(ADRESA_API + "?type=pendulum&position=" + r + "&newInput=" + JSON.stringify(newInput));
     if(!isNaN(r)){
         if( r <= MAX_R && r >= 0) {
             $.get({
-                url: ADRESA_API + "?type=pendulum&position=" + r + "&newInput=" + JSON.stringify(newInput),
+                url: ADRESA_API + "?type=pendulum&position=" + r + "&newInput=" + JSON.stringify(newInput)+"&apiKey=1234",
                 success: function (data) {
                     console.log(data);
 
