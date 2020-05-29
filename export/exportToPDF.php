@@ -1,7 +1,7 @@
 <?php
 //export tabulky "logs" do pdf [Petra]
 
-require "config.php";
+require "../config.php";
 require 'fpdf/fpdf.php';
 
 
@@ -68,21 +68,21 @@ if (isset($language)) {
     $pdf->SetFont('Arial','B',8);
 
     //zapis headeru do pdf
-    $pdf->Cell(5, 5, "id", 1);
+    $pdf->Cell(10, 5, "id", 1);
     $pdf->Cell(30, 5,"timestamp", 1);
     $pdf->Cell(180, 5, "command", 1);
     $pdf->Cell(15, 5, "status", 1);
-    $pdf->Cell(50, 5, "error_info", 1);
+    $pdf->Cell(40, 5, "error_info", 1);
 
     //zapis riadkov do pdf
     foreach($rows as $row) {
         $pdf->Ln();
-        $pdf->Cell(5, 20, $row["id"], 1);
+        $pdf->Cell(10, 20, $row["id"], 1);
         $pdf->Cell(30, 20, $row["timestamp"], 1);
         //viacriadkova bunka s paddingom
-        $pdf->MultiAlignCell( 180, 4, str_pad(trim($row["command"]), 850), 1);
+        $pdf->MultiAlignCell( 180, 4, str_pad(trim($row["command"]), 900), 1);
         $pdf->Cell(15, 20, $row["status"], 1);
-        $pdf->Cell(50, 20, $row["error_info"], 1);
+        $pdf->Cell(40, 20, $row["error_info"], 1);
     }
 
     //zapis vystupu do pdf, otvori sa nova stranka
