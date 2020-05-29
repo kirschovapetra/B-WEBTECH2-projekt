@@ -1,7 +1,7 @@
 <?php
 //export tabulky "logs" do csv [Petra]
 
-include 'config.php';
+include '../config.php';
 
 $language = $_GET["lang"];
 if (isset($language)) {
