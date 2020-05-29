@@ -18,7 +18,7 @@ if (isset($_GET["apiKey"]) && $_GET["apiKey"] == "1234") {
 
     function executeCommand()
     {
-        //TODO (tusim Matus :D )
+        //TODO (tusim Matus)
     }
 
 
@@ -26,17 +26,18 @@ if (isset($_GET["apiKey"]) && $_GET["apiKey"] == "1234") {
     {
 
         if (isset($_GET["type"])) {
-            // [Petra]
-            if ($_GET["type"] == "ballbeam") {
+            if ($_GET["type"] == "ballbeam") { // [Petra]
                 getBallBeamData();
-            } else if ($_GET["type"] == "plane") {
+            } 
+            else if ($_GET["type"] == "plane") {
                 //TODO (Veronika)
-            } else if ($_GET["type"] == "car") {
+            } 
+            else if ($_GET["type"] == "car") {
                 //TODO (Matus)
-            } else if ($_GET["type"] == "pendulum") {
-                //TODO (Simona)
             }
-        }
+            else if ($_GET["type"] == "pendulum") { // [Simona]
+              getInvertedPendulumData();
+            }
     }
 
 //gulicka na tyci [Petra]
@@ -115,6 +116,62 @@ if (isset($_GET["apiKey"]) && $_GET["apiKey"] == "1234") {
         $db->exec($query);
     }
 
+    $db->exec($query);
+}
+
+// inverzne kyvadlo [Simona]
+function getInvertedPendulumData(){
+    global $path;
+
+    if (isset($_GET["position"]) && isset($_GET["newInput"])) {
+        $r = $_GET['position']; //nova pozicia
+        $newInput = json_decode($_GET['newInput']); //x(size(x,1),:) z predosleho volania
+
+        //spustenie prikazu v octave
+        $command = "octave $path/kyvadlo.m $r $newInput[0] $newInput[1] $newInput[2] $newInput[3]";
+        exec($command, $octaveOutput, $returnVal);
+
+        $positions = array();
+        $times = array();
+        $angles = array();
+        $newInput = array();
+
+        //zapis logu do databazy
+        logStatus($command, empty($octaveOutput));
+
+        foreach ($octaveOutput as $id => $row) {
+
+            if ($id >= 0 && $id <= 3){
+                array_push($newInput,floatval(trim($row)));
+            }
+            else {
+                $splitRow = preg_split('/\s+/', trim($row)); //odstranenie medzier
+
+                if (isset($splitRow[0]) && !empty($splitRow[0])) {
+                    array_push($positions, floatval($splitRow[0])); //pridanie novej pozicie
+                }
+                if (isset($splitRow[1]) && !empty($splitRow[1])) {
+                    //https://www.php.net/manual/en/function.number-format.php
+                    array_push($times, number_format($splitRow[1], 2, '.', '')); //pridanie noveho casu
+                }
+                if (isset($splitRow[2]) && !empty($splitRow[2])) {
+                    array_push($angles, floatval($splitRow[2])); //pridanie noveho uhlu
+                }
+            }
+
+        }
+
+        //vystup ako asociativne pole
+        $out = array();
+        $out["positions"] = $positions;
+        $out["times"] = $times;
+        $out["angles"] = $angles;
+        $out["newInput"] = $newInput;
+
+        //vypis
+        echo json_encode($out);
+    }
+}
 
 
 

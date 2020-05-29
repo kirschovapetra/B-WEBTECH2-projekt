@@ -1,0 +1,156 @@
+var kyvadlo;
+var canvas;
+var auticko;
+var t = 0.0;
+var staraPozicia = 0;
+var staryUhol = 0;
+var pozicie = [];
+var uhol = [];
+var interval;
+var zisti = false;
+var newInput = [0, 0, 0, 0];
+
+const MAX_R = 20;
+const ADRESA_API = "octave/api/animation";
+
+$(document).ready(function () {
+    document.getElementById("graf").style.display = "none";
+    canvas = new fabric.Canvas('canvas');
+    canvas.setHeight(500);
+    canvas.setWidth(1500);
+    canvas.setZoom(0.3);
+    canvas.calcOffset();
+
+    fabric.loadSVGFromURL('pendulum.svg', function(objects, options) {
+        var pole = [];
+        var pole2 = [];
+
+        for (var obj of objects){
+            if(obj.id == "kyvadlo"){
+                pole2.push(obj);
+                kyvadlo = fabric.util.groupSVGElements(pole2, options);
+                kyvadlo.centeredRotation = true;
+                var center = kyvadlo.getCenterPoint();
+                kyvadlo.originX = 0.5;
+                kyvadlo.originY = 1;
+                kyvadlo.left = center.x;
+                kyvadlo.top = center.y;
+                canvas.add(kyvadlo).renderAll();
+            } else {
+                pole.push(obj);
+            }
+
+        }
+        auticko = fabric.util.groupSVGElements(pole, options);
+        canvas.add(auticko).renderAll();
+    },
+        function(item, object) {
+             object.set("id",item.getAttribute('id'));
+        }
+    );
+
+
+});
+
+function funkcia2() {
+    t = 0;
+    interval = setInterval(animacia,50);
+}
+
+function animacia() {
+
+    var i = Math.round(t/0.05);
+
+    var novaPozicia = pozicie[i];
+    var novyUhol = uhol[i];
+
+    var posun = novaPozicia - staraPozicia;
+    var posunUhla = novyUhol - staryUhol;
+
+    if(t>10 || isNaN(posun)){
+        clearInterval(interval);
+        return;
+    }
+
+    staraPozicia = novaPozicia;
+    staryUhol = novyUhol;
+
+    t = t+0.05;
+
+    auticko.set({left:auticko.get("left")+(posun*100)});
+
+    kyvadlo.set({left:kyvadlo.get("left")+(posun*100)});
+    kyvadlo.set({angle:kyvadlo.get("angle")+(posunUhla*(180/Math.PI))});
+
+    console.log("posun" + posun);
+    canvas.renderAll();
+
+}
+
+function prepniZobrazenie(id){
+    if(id === "graf" && zisti === false){
+        return;
+    }
+    var div = document.getElementById(id);
+    var zobrazenie = div.style.display;
+    if(zobrazenie == "none"){
+        div.style.display = "block";
+    } else {
+        div.style.display = "none";
+    }
+
+}
+
+function spracovanieR() {
+    var r = parseFloat(document.getElementById("hodnotaR").value);
+
+    if(!isNaN(r)){
+        if( r <= MAX_R && r >= 0) {
+            $.get({
+                url: ADRESA_API + "?type=pendulum&position=" + r + "&newInput=" + JSON.stringify(newInput),
+                success: function (data) {
+                    console.log(data);
+
+                    labels = data.times;
+                    pozicie = data.positions;
+                    uhol = data.angles;
+
+                    newInput = data.newInput;
+
+                    $("#line-chart").remove();
+                    $("#graf").append("<canvas id=\"line-chart\" width=\"800\" height=\"450\"></canvas>");
+
+                    new Chart(document.getElementById("line-chart"), {
+                        type: 'line',
+                        data: {
+                            labels: labels,
+                            datasets: [{
+                                data: pozicie,
+                                label: "Pozícia kyvadla",
+                                borderColor: "#3e95cd",
+                                fill: false
+                            }, {
+                                data: uhol,
+                                label: "Uhol vychýlenia kyvadla v radiánoch",
+                                borderColor: "#c45850",
+                                fill: false
+                            }
+                            ]
+                        },
+                        options: {
+                            title: {
+                                display: true,
+                                text: 'Inverzné kyvadlo'
+                            }
+                        }
+                    });
+                    document.getElementById("graf").style.display = "block";
+                    zisti = true;
+                    funkcia2();
+                }
+            });
+        }else {
+            console.log("velka hodnota");
+        }
+    }
+}
