@@ -36,7 +36,7 @@ $valid = ($key == $apiKey);
             <li class="active nav-item"><a href="plane.php" class="nav-link">LIETADLO</a></li>
             <li class="nav-item"><a href="pendulum.html" class="nav-link">KYVADLO</a></li>
             <li class="nav-item"><a href="#" class="nav-link">AUTO</a></li>
-            <li class="nav-item"><a href="plane_english.php.php" class="nav-link">EN</a></li>
+            <li class="nav-item"><a href="plane_english.php" class="nav-link">EN</a></li>
         </ul>
     </nav>
 </header>
