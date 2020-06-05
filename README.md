@@ -1,17 +1,17 @@
 # webtech2
 
 Sima
-- kyvadlo
-- api
-- statistika + email
+[x] kyvadlo
+[ ] api
+[ ] statistika + email
 
 Petra
-- gulicka DONE
-- log,csv,pdf DONE
-- api DONE
+[x] gulicka 
+[x] log,csv,pdf 
+[x] api 
 
 Veronika
-- lietadlo DONE
+[x] lietadlo 
 - popis api
 - api do pdf
 
