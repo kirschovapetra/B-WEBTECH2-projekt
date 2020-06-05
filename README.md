@@ -1,22 +1,22 @@
 # webtech2
 
 Sima
-- kyvadlo
-- api
-- statistika + email
+- [x] kyvadlo
+- [ ] api
+- [ ] statistika + email
 
 Petra
-- gulicka DONE
-- log,csv,pdf DONE
-- api DONE
+- [x] gulicka 
+- [x] log,csv,pdf 
+- [x] api 
 
 Veronika
-- lietadlo
-- popis api
-- api do pdf
+- [x] lietadlo 
+- [ ] popis api
+- [ ] api do pdf
 
 Matus
-- automobil
-- design, checkboxy, kontrola vstupu
-- api
-- statistika + email
+- [ ] automobil
+- [ ] design, checkboxy, kontrola vstupu
+- [ ] api
+- [ ] statistika + email
