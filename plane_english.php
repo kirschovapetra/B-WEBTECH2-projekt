@@ -46,7 +46,7 @@ $valid = ($key == $apiKey);
 
     <div class="d-flex justify-content-center my-5 align-content-center flex-wrap form-inline">
 
-        <form class="form-group" action="plane.php" method="POST">
+        <form class="form-group" action="plane_english.php" method="POST">
             <label for="position" class="control-label"><b>API key: </b> </label>
             <input autofocus class="form-control" type="text" name="apiKey" id="apiKey" value="<?=$key?>">
             <input type="submit" class="btn btn-primary" name="apiKeySubmit" id="apiKeySubmit" value="OK">
