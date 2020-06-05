@@ -11,7 +11,7 @@ Petra
 - api DONE
 
 Veronika
-- lietadlo
+- lietadlo DONE
 - popis api
 - api do pdf
 
