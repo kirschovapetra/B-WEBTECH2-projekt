@@ -27,7 +27,7 @@ require "config.php";
                     <li class="active nav-item"><a href="index_english.php" class="nav-link">HOME</a></li>
                     <li class="nav-item"><a href="ballbeam_english.php" class="nav-link">BALL</a></li>
                     <li class="nav-item"><a href="plane_english.php" class="nav-link">PLANE</a></li>
-                    <li class="nav-item"><a href="pendulum.html" class="nav-link">PENDULUM</a></li>
+                    <li class="nav-item"><a href="pendulum_english.php" class="nav-link">PENDULUM</a></li>
                     <li class="nav-item"><a href="#" class="nav-link">CAR</a></li>
                     <li class="nav-item"><a href="index.php" class="nav-link">SK</a></li>
                 </ul>
