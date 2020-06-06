@@ -30,7 +30,7 @@ if (isset($_GET["apiKey"]) && $_GET["apiKey"] == $apiKey) {
             } else if ($_GET["type"] == "plane") {
                 getPlaneData();
             } else if ($_GET["type"] == "car") {
-                //TODO (Matus)
+                getVehicleDampingData();
             } else if ($_GET["type"] == "pendulum") { // [Simona]
                 getInvertedPendulumData();
             }
@@ -147,6 +147,60 @@ function getInvertedPendulumData(){
         echo json_encode($out);
     }
 }
+
+//tlmenie vozidla [Matus]
+function getVehicleDampingData(){
+    global $path;
+
+    if (isset($_GET["position"]) && isset($_GET["newInput"])) {
+        $r = $_GET['position']; //nova pozicia
+        $newInput = json_decode($_GET['newInput']); //x(size(x,1),:) z predosleho volania
+
+        //spustenie prikazu v octave
+        $command = "octave -q $path/tlmenie.m $r $newInput[0] $newInput[1] $newInput[2] $newInput[3] $newInput[4]";
+        exec($command, $octaveOutput, $returnVal);
+
+        logStatus($command, empty($octaveOutput));
+
+        $positions = array();
+        $times = array();
+        $angles = array();
+        $newInput = array();
+
+        //data ziskane z octave
+        foreach ($octaveOutput as $id => $row) {
+            //x(size(x,1),:)  -> zapise sa do $newInput
+            if ($id >= 0 && $id <= 4) {
+                array_push($newInput, floatval(trim($row)));
+            } //pozicie, casy, uhly
+            else {
+                $splitRow = preg_split('/\s+/', trim($row)); //odstranenie medzier
+
+                if (isset($splitRow[0]) && !empty($splitRow[0])) {
+                    array_push($positions, floatval($splitRow[0])); //pridanie novej pozicie
+                }
+                if (isset($splitRow[1]) && !empty($splitRow[1])) {
+                    array_push($times, floatval($splitRow[1])); //pridanie noveho casu
+                }
+                if (isset($splitRow[2]) && !empty($splitRow[2])) {
+                    array_push($angles, floatval($splitRow[2])); //pridanie noveho uhlu
+                }
+            }
+        }
+
+        //vystup ako asociativne pole
+        $out = array();
+        $out["auto"] = $positions;
+        $out["times"] = $times;
+        $out["koleso"] = $angles;
+        $out["newInput"] = $newInput;
+
+
+        //vypis
+        echo json_encode($out);
+    }
+}
+
 
 
 //plane [Nika]
