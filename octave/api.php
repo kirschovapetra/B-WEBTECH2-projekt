@@ -5,7 +5,7 @@ include "../config.php";
 
 header("Content-Type:application/json");
 
-if (isset($_GET["apiKey"]) && $_GET["apiKey"] == "1234") {
+if (isset($_GET["apiKey"]) && $_GET["apiKey"] == $apiKey) {
     //data na animacie
     if (isset($_GET["execute"]) && $_GET["execute"] == "animation") {
         executeAnimation();
@@ -28,7 +28,7 @@ if (isset($_GET["apiKey"]) && $_GET["apiKey"] == "1234") {
             if ($_GET["type"] == "ballbeam") { // [Petra]
                 getBallBeamData();
             } else if ($_GET["type"] == "plane") {
-                //TODO (Veronika)
+                getPlaneData();
             } else if ($_GET["type"] == "car") {
                 getVehicleDampingData();
             } else if ($_GET["type"] == "pendulum") { // [Simona]
@@ -203,6 +203,59 @@ function getVehicleDampingData(){
 
 
 
+//plane [Nika]
+function getPlaneData()    {
+    global $path;
+
+    if (isset($_GET["position"]) && isset($_GET["newInput"])) {
+        $r = $_GET['position']; //nova pozicia
+        $newInput = json_decode($_GET['newInput']); //x(size(x,1),:) z predosleho volania
+
+        //spustenie prikazu v octave
+        $command = "octave $path/plane.m $r $newInput[0] $newInput[1] $newInput[2]";
+        exec($command, $octaveOutput, $returnVal);
+
+        //zapis logu do databazy
+        logStatus($command, empty($octaveOutput));
+
+        $positions = array();
+        $times = array();
+        $angles = array();
+        $newInput = array();
+
+        //data ziskane z octave
+        foreach ($octaveOutput as $id => $row) {
+            //x(size(x,1),:)  -> zapise sa do $newInput
+            if ($id >= 0 && $id <= 2) {
+                array_push($newInput, floatval(trim($row)));
+            } //pozicie, casy, uhly
+            else {
+                $splitRow = preg_split('/\s+/', trim($row)); //odstranenie medzier
+
+                if (isset($splitRow[0]) && !empty($splitRow[0])) {
+                    array_push($positions, floatval($splitRow[0])); //pridanie novej pozicie
+                }
+                if (isset($splitRow[1]) && !empty($splitRow[1])) {
+                    array_push($times, floatval($splitRow[1])); //pridanie noveho casu
+                }
+                if (isset($splitRow[2]) && !empty($splitRow[2])) {
+                    array_push($angles, floatval($splitRow[2])); //pridanie noveho uhlu
+                }
+            }
+        }
+
+        //vystup ako asociativne pole
+        $out = array();
+        $out["positions"] = $positions;
+        $out["times"] = $times;
+        $out["angles"] = $angles;
+        $out["newInput"] = $newInput;
+
+        //vypis
+        echo json_encode($out);
+    }
+}
+
 //zapis logov do databazy [Petra]
 function logStatus($command, $status)    {
     global $db;
@@ -218,5 +271,5 @@ function logStatus($command, $status)    {
                     VALUES('$timestamp','$command','error','nepodarilo sa vykonat prikaz')";
     }
     $db->exec($query);
+    
 }
-

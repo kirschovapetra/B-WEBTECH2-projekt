@@ -16,6 +16,6 @@ $dbname = "Skuska_DB";
 
 $path = "../octave_scripts";
 
-$apiKey = "1234";
+$apiKey = "Strong12Key";
 
 date_default_timezone_set("Europe/Bratislava");

@@ -2,6 +2,7 @@
 
 <?php
 require "config.php";
+
 ?>
 
 <!DOCTYPE html>
@@ -20,14 +21,14 @@ require "config.php";
     </head>
 
     <body>
-        <header>
+        <header class="navbar-light bg-light">
             <h1>DOMOV</h1>
-            <nav class="navbar navbar-expand-lg justify-content-center">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-center">
                 <ul class="nav navbar-nav">
                     <li class="active nav-item"><a href="index.php" class="nav-link">DOMOV</a></li>
                     <li class="nav-item"><a href="ballbeam.php" class="nav-link">GULIČKA</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">LIETADLO</a></li>
-                    <li class="nav-item"><a href="pendulum.html" class="nav-link">KYVADLO</a></li>
+                    <li class="nav-item"><a href="plane.php" class="nav-link">LIETADLO</a></li>
+                    <li class="nav-item"><a href="pendulum.php" class="nav-link">KYVADLO</a></li>
                     <li class="nav-item"><a href="#" class="nav-link">AUTO</a></li>
                     <li class="nav-item"><a href="index_english.php" class="nav-link">EN</a></li>
                 </ul>

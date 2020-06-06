@@ -2,7 +2,7 @@
 require "config.php";
 $key = isset($_POST['apiKey'])? $_POST['apiKey'] : "";
 
-$valid = ($key == $apiKey);
+$valid = ($key === $apiKey);
 ?>
 <!-- Ball & Beam [Petra] -->
 <!DOCTYPE html>
@@ -30,8 +30,8 @@ $valid = ($key == $apiKey);
                 <ul class="nav navbar-nav">
                     <li class="nav-item"><a href="index.php" class="nav-link">DOMOV</a></li>
                     <li class="active nav-item"><a href="ballbeam.php" class="nav-link">GULIČKA</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">LIETADLO</a></li>
-                    <li class="nav-item"><a href="pendulum.html" class="nav-link">KYVADLO</a></li>
+                    <li class="nav-item"><a href="plane.php" class="nav-link">LIETADLO</a></li>
+                    <li class="nav-item"><a href="pendulum.php" class="nav-link">KYVADLO</a></li>
                     <li class="nav-item"><a href="#" class="nav-link">AUTO</a></li>
                     <li class="nav-item"><a href="ballbeam_english.php" class="nav-link">EN</a></li>
                 </ul>
@@ -102,7 +102,7 @@ $valid = ($key == $apiKey);
         <?php
             if (isset($_POST["apiKeySubmit"])){
                 $key = $_POST["apiKey"];
-                $valid = ($key == $apiKey);
+                $valid = ($key === $apiKey);
                 $encodedValid = json_encode($valid);
                 echo "<script>";
                 echo "toggleVisibility($encodedValid,'valid-key-show');";
