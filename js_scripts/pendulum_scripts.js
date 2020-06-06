@@ -9,43 +9,49 @@ var uhol = [];
 var interval;
 var zisti = false;
 var newInput = [0, 0, 0, 0];
+var jazyk;
 
 const MAX_R = 20;
 const ADRESA_API = "octave/api/animation";
 
 $(document).ready(function () {
-    document.getElementById("graf").style.display = "none";
+    document.getElementById("graphs-container").style.display = "none";
     canvas = new fabric.Canvas('canvas');
     canvas.setHeight(500);
     canvas.setWidth(1500);
     canvas.setZoom(0.3);
     canvas.calcOffset();
 
+    jazyk = document.getElementsByTagName('html')[0]['lang'];
+
+    //tooltip - defaultne nie je viditelny
+    $('#positionInput').tooltip({trigger: "manual"}).tooltip('hide');
+
     fabric.loadSVGFromURL('pendulum.svg', function(objects, options) {
-        var pole = [];
-        var pole2 = [];
+            var pole = [];
+            var pole2 = [];
 
-        for (var obj of objects){
-            if(obj.id == "kyvadlo"){
-                pole2.push(obj);
-                kyvadlo = fabric.util.groupSVGElements(pole2, options);
-                kyvadlo.centeredRotation = true;
-                var center = kyvadlo.getCenterPoint();
-                kyvadlo.originX = 0.5;
-                kyvadlo.originY = 1;
-                kyvadlo.left = center.x;
-                kyvadlo.top = center.y;
-                canvas.add(kyvadlo).renderAll();
-            } else {
-                pole.push(obj);
+            for (var obj of objects){
+                if(obj.id == "kyvadlo"){
+                    pole2.push(obj);
+                    kyvadlo = fabric.util.groupSVGElements(pole2, options);
+                    kyvadlo.centeredRotation = true;
+                    var center = kyvadlo.getCenterPoint();
+                    kyvadlo.originX = 0.5;
+                    kyvadlo.originY = 1;
+                    kyvadlo.left = center.x;
+                    kyvadlo.top = center.y;
+                    canvas.add(kyvadlo).renderAll();
+                } else {
+                    pole.push(obj);
+                }
+
             }
-
-        }
-        auticko = fabric.util.groupSVGElements(pole, options);
-        canvas.add(auticko).renderAll();
-    },
+            auticko = fabric.util.groupSVGElements(pole, options);
+            canvas.add(auticko).renderAll();
+        },
         function(item, object) {
-             object.set("id",item.getAttribute('id'));
+            object.set("id",item.getAttribute('id'));
         }
     );
 
@@ -80,15 +86,15 @@ function animacia() {
     auticko.set({left:auticko.get("left")+(posun*100)});
 
     kyvadlo.set({left:kyvadlo.get("left")+(posun*100)});
-    kyvadlo.set({angle:kyvadlo.get("angle")+(posunUhla*(180/Math.PI))});
+    kyvadlo.set({angle:kyvadlo.get("angle")-(posunUhla*(180/Math.PI))});
 
-    console.log("posun" + posun);
+    // console.log("posun" + posun);
     canvas.renderAll();
 
 }
 
 function prepniZobrazenie(id){
-    if(id === "graf" && zisti === false){
+    if(id === "graphs-container" && zisti === false){
         return;
     }
     var div = document.getElementById(id);
@@ -102,14 +108,17 @@ function prepniZobrazenie(id){
 }
 
 function spracovanieR() {
-    var r = parseFloat(document.getElementById("hodnotaR").value);
-    console.log(ADRESA_API + "?type=pendulum&position=" + r + "&newInput=" + JSON.stringify(newInput));
+    var r = parseFloat(document.getElementById("positionInput").value);
+    // console.log(ADRESA_API + "?type=pendulum&position=" + r + "&newInput=" + JSON.stringify(newInput));
     if(!isNaN(r)){
         if( r <= MAX_R && r >= 0) {
+
+            $('#positionInput').tooltip({trigger: "manual"}).tooltip('hide');
+
             $.get({
                 url: ADRESA_API + "?type=pendulum&position=" + r + "&newInput=" + JSON.stringify(newInput)+"&apiKey=1234",
                 success: function (data) {
-                    console.log(data);
+                    // console.log(data);
 
                     labels = data.times;
                     pozicie = data.positions;
@@ -120,37 +129,80 @@ function spracovanieR() {
                     $("#line-chart").remove();
                     $("#graf").append("<canvas id=\"line-chart\" width=\"800\" height=\"450\"></canvas>");
 
-                    new Chart(document.getElementById("line-chart"), {
-                        type: 'line',
-                        data: {
-                            labels: labels,
-                            datasets: [{
-                                data: pozicie,
-                                label: "Pozícia kyvadla",
-                                borderColor: "#3e95cd",
-                                fill: false
-                            }, {
-                                data: uhol,
-                                label: "Uhol vychýlenia kyvadla v radiánoch",
-                                borderColor: "#c45850",
-                                fill: false
+                    if(jazyk == 'sk'){
+                        new Chart(document.getElementById("line-chart"), {
+                            type: 'line',
+                            data: {
+                                labels: labels,
+                                datasets: [{
+                                    data: pozicie,
+                                    label: "Pozícia kyvadla",
+                                    borderColor: "#3e95cd",
+                                    fill: false
+                                }, {
+                                    data: uhol,
+                                    label: "Uhol vychýlenia kyvadla v radiánoch",
+                                    borderColor: "#c45850",
+                                    fill: false
+                                }
+                                ]
+                            },
+                            options: {
+                                title: {
+                                    display: true,
+                                    text: 'Inverzné kyvadlo'
+                                }
                             }
-                            ]
-                        },
-                        options: {
-                            title: {
-                                display: true,
-                                text: 'Inverzné kyvadlo'
+                        });
+                    }
+                    else if(jazyk == 'en'){
+                        new Chart(document.getElementById("line-chart"), {
+                            type: 'line',
+                            data: {
+                                labels: labels,
+                                datasets: [{
+                                    data: pozicie,
+                                    label: "Pendulum position",
+                                    borderColor: "#3e95cd",
+                                    fill: false
+                                }, {
+                                    data: uhol,
+                                    label: "Pendulum angle in radians",
+                                    borderColor: "#c45850",
+                                    fill: false
+                                }
+                                ]
+                            },
+                            options: {
+                                title: {
+                                    display: true,
+                                    text: 'Inverted pendulum'
+                                }
                             }
-                        }
-                    });
-                    document.getElementById("graf").style.display = "block";
+                        });
+                    }
+
+                    document.getElementById("graphs-container").style.display = "block";
                     zisti = true;
                     funkcia2();
                 }
             });
         }else {
-            console.log("velka hodnota");
+            //tooltip sa zobrazi ked sa zadaju nespravne hodnoty
+            $('#positionInput').tooltip('show');
         }
+    }
+}
+
+function toggleVisibility(show,target) {
+    var targets = document.getElementsByClassName(target);
+
+    if (show){
+        for (var i = 0; i < targets.length; i++)
+            targets[i].style.visibility="visible";
+    }
+    else {
+        for (var i = 0; i < targets.length; i++)
+            targets[i].style.visibility="hidden";
     }
 }
