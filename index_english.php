@@ -20,9 +20,9 @@ require "config.php";
     </head>
 
     <body>
-        <header>
+        <header class="navbar-light bg-light">
             <h1>HOME</h1>
-            <nav class="navbar navbar-expand-lg justify-content-center">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-center">
                 <ul class="nav navbar-nav">
                     <li class="active nav-item"><a href="index_english.php" class="nav-link">HOME</a></li>
                     <li class="nav-item"><a href="ballbeam_english.php" class="nav-link">BALL</a></li>

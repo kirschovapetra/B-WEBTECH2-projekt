@@ -5,7 +5,7 @@ include "../config.php";
 
 header("Content-Type:application/json");
 
-if (isset($_GET["apiKey"]) && $_GET["apiKey"] == "1234") {
+if (isset($_GET["apiKey"]) && $_GET["apiKey"] == $apiKey) {
     //data na animacie
     if (isset($_GET["execute"]) && $_GET["execute"] == "animation") {
         executeAnimation();
