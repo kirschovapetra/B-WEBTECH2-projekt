@@ -1,3 +1,5 @@
+/************************************* Pendulum [Simona] *************************************/
+
 var kyvadlo;
 var canvas;
 var auticko;
@@ -108,6 +110,7 @@ function prepniZobrazenie(id){
 }
 
 function spracovanieR() {
+    var apiKey = document.getElementById("apiKey").value;
     var r = parseFloat(document.getElementById("positionInput").value);
     // console.log(ADRESA_API + "?type=pendulum&position=" + r + "&newInput=" + JSON.stringify(newInput));
     if(!isNaN(r)){

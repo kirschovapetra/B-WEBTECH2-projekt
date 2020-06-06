@@ -2,21 +2,21 @@
 
 Sima
 - [x] kyvadlo
-- [ ] api
+- [x] api
 - [ ] statistika + email
 
 Petra
 - [x] gulicka 
-- [x] log,csv,pdf 
 - [x] api 
+- [x] log, csv,pdf 
 
 Veronika
 - [x] lietadlo 
+- [x] api 
 - [ ] popis api
 - [ ] api do pdf
 
 Matus
 - [ ] automobil
-- [ ] design, checkboxy, kontrola vstupu
 - [ ] api
-- [ ] statistika + email
+- [ ] formular

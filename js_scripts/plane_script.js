@@ -13,9 +13,6 @@ $(document).ready(function () {
     lang = document.getElementsByTagName('html')[0]['lang'];
 })
 
-function rad2deg(radians){
-    return radians * (180/Math.PI);
-}
 
 //vykreslenie grafov
 function plot(lang){

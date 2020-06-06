@@ -2,9 +2,9 @@
 require "config.php";
 $key = isset($_POST['apiKey'])? $_POST['apiKey'] : "";
 
-$valid = ($key == $apiKey);
+$valid = ($key === $apiKey);
 ?>
-<!-- Ball & Beam [Petra] -->
+<!-- Pendulum [Simona] -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -104,11 +104,10 @@ $valid = ($key == $apiKey);
 <?php
 if (isset($_POST["apiKeySubmit"])){
     $key = $_POST["apiKey"];
-    $valid = ($key == $apiKey);
+    $valid = ($key === $apiKey);
     $encodedValid = json_encode($valid);
     echo "<script>";
     echo "toggleVisibility($encodedValid,'valid-key-show');";
-    // echo "changePosition('sk',$encodedValid);";
     echo "</script>";
 }
 ?>

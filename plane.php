@@ -2,7 +2,7 @@
 require "config.php";
 $key = isset($_POST['apiKey'])? $_POST['apiKey'] : "";
 
-$valid = ($key == $apiKey);
+$valid = ($key === $apiKey);
 ?>
 <!-- Plane [Nika] -->
 <!DOCTYPE html>
@@ -131,7 +131,7 @@ $valid = ($key == $apiKey);
 <?php
 if (isset($_POST["apiKeySubmit"])){
     $key = $_POST["apiKey"];
-    $valid = ($key == $apiKey);
+    $valid = ($key === $apiKey);
     $encodedValid = json_encode($valid);
     echo "<script>";
     echo "toggleVisibility($encodedValid,'valid-key-show');";

@@ -2,7 +2,7 @@
 require "config.php";
 $key = isset($_POST['apiKey'])? $_POST['apiKey'] : "";
 
-$valid = ($key == $apiKey);
+$valid = ($key === $apiKey);
 ?>
 <!-- Plane [Nika] -->
 <!DOCTYPE html>
@@ -62,7 +62,7 @@ $valid = ($key == $apiKey);
             <label for="position" class="control-label"><b>Position (from -50 to 50):</b> </label>
             <input class="form-control" type="number" name="position" id="positionInput" value="0"  data-placement="bottom" title="Range: from -50 to 50" onchange="changePosition('en',<?=$valid?>)">
         </div>
-        <<div class="form-group">
+        <div class="form-group">
             <div class="checkbox-inline">
                 <label class="control-label"><input type="checkbox"  name="animationCheck" id="animationCheck" onchange="toggleDisplay(this.checked,'animation-toggle')" checked>Show animation</label>
             </div>
@@ -129,7 +129,7 @@ $valid = ($key == $apiKey);
 <?php
 if (isset($_POST["apiKeySubmit"])){
     $key = $_POST["apiKey"];
-    $valid = ($key == $apiKey);
+    $valid = ($key === $apiKey);
     $encodedValid = json_encode($valid);
     echo "<script>";
     echo "toggleVisibility($encodedValid,'valid-key-show');";
