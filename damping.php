@@ -2,7 +2,7 @@
 require "config.php";
 $key = isset($_POST['apiKey'])? $_POST['apiKey'] : "";
 
-$valid = ($key == $apiKey);
+$valid = ($key === $apiKey);
 ?>
 <!DOCTYPE html>
 <html>
@@ -23,15 +23,15 @@ $valid = ($key == $apiKey);
 </head>
 <body>
 <header class="navbar-light bg-light">
-    <h1>Tlmenie vozidla</h1>
+    <h1>TLMENIE VOZIDLA</h1>
     <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-center">
         <ul class="nav navbar-nav">
             <li class="nav-item"><a href="index.php" class="nav-link">DOMOV</a></li>
             <li class="nav-item"><a href="ballbeam.php" class="nav-link">GULIČKA</a></li>
             <li class="nav-item"><a href="plane.php" class="nav-link">LIETADLO</a></li>
-            <li class="nav-item"><a href="pendulum.html" class="nav-link">KYVADLO</a></li>
+            <li class="nav-item"><a href="pendulum.php" class="nav-link">KYVADLO</a></li>
             <li class="active nav-item"><a href="damping.php" class="nav-link">AUTO</a></li>
-            <li class="nav-item"><a href="plane_english.php" class="nav-link">EN</a></li>
+            <li class="nav-item"><a href="damping_english.php" class="nav-link">EN</a></li>
         </ul>
     </nav>
 </header>
@@ -115,7 +115,7 @@ $valid = ($key == $apiKey);
 <?php
 if (isset($_POST["apiKeySubmit"])){
     $key = $_POST["apiKey"];
-    $valid = ($key == $apiKey);
+    $valid = ($key === $apiKey);
     $encodedValid = json_encode($valid);
     echo "<script>";
     echo "toggleVisibility($encodedValid,'valid-key-show');";
