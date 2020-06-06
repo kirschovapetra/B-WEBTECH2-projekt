@@ -28,13 +28,13 @@ require "config.php";
                     <li class="nav-item"><a href="ballbeam_english.php" class="nav-link">BALL</a></li>
                     <li class="nav-item"><a href="plane_english.php" class="nav-link">PLANE</a></li>
                     <li class="nav-item"><a href="pendulum_english.php" class="nav-link">PENDULUM</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">CAR</a></li>
+                    <li class="nav-item"><a href="damping_english.php" class="nav-link">CAR</a></li>
                     <li class="nav-item"><a href="index.php" class="nav-link">SK</a></li>
                 </ul>
             </nav>
         </header>
 
-        <div class="d-flex justify-content-center">
+        <div class="d-flex justify-content-center mt-3">
             <a href="export/exportToCSV.php?lang=en"><input type="submit" class="btn btn-primary" name="exportCSV" id="exportCSV" value="Export logs to CSV"></a>
             <a href="export/exportToPDF.php?lang=en"> <input type="submit" class="btn btn-primary" name="exportPDF" id="exportPDF" value="Export logs to PDF"></a>
         </div>

@@ -32,7 +32,7 @@ $valid = ($key === $apiKey);
                     <li class="active nav-item"><a href="ballbeam_english.php" class="nav-link">BALL</a></li>
                     <li class="nav-item"><a href="plane_english.php" class="nav-link">PLANE</a></li>
                     <li class="nav-item"><a href="pendulum_english.php" class="nav-link">PENDULUM</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">CAR</a></li>
+                    <li class="nav-item"><a href="damping_english.php" class="nav-link">CAR</a></li>
                     <li class="nav-item"><a href="ballbeam.php" class="nav-link">SK</a></li>
                 </ul>
             </nav>
