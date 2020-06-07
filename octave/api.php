@@ -276,7 +276,7 @@ function logStatus($command, $status)    {
 function statistika($model){
     global $db;
     try {
-        $sql =  "UPDATE statistika SET pocet = pocet + 1 WHERE model = ?";
+        $sql =  "UPDATE statistika SET pocet = pocet + 1 WHERE sk = ?";
         $db->prepare($sql)->execute(array($model));
     } catch (PDOException $e){
     }

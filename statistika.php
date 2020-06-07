@@ -65,7 +65,7 @@ require "config.php";
 </div>
 
 <div class="centrovanie">
-    <label>email: <input type="email" placeholder="Zadajte mail" id="email"></label>
+    <label>email: <input class="form-control" type="email" placeholder="Zadajte mail" id="email"></label>
     <button class="btn btn-primary" onclick="posliMail()">Odoslať</button>
     <p id="mail">Mail bol úspešne odoslaný :)</p>
     <p id="chyba_mailu">Neplatný mail</p>
