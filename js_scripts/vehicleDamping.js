@@ -105,13 +105,15 @@ function changeGraph(lang,keyIsValid){ //(lang,keyIsValid)
 
         if (!isNaN(obstacle) && obstacle >= MIN_VALUE && obstacle <= MAX_VALUE) {
             obstacle = obstacle / 100;
-            // odtatial treba pomoct
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function () {
-                if (this.readyState == 4 && this.status == 200) {
-                    //nacitanie dat z octave
-                    var data = JSON.parse(this.responseText);
 
+            var requestUrl = endpoint + "?type=car&position=" + obstacle + "&newInput=" + JSON.stringify(newInput) + "&apiKey=" + apiKey;
+            console.log(requestUrl);
+
+            //get request na octave api
+            $.get({
+                url: requestUrl,
+                success: function (data) {
+                    //nacitanie dat z octave
                     newInput = data.newInput;
                     carPositions = data.auto;
                     wheelPositions = data.koleso;
@@ -119,18 +121,12 @@ function changeGraph(lang,keyIsValid){ //(lang,keyIsValid)
 
                     graph(lang); //grafy
 
-                    //spustenie casovaca - posuvanie gulicky
+                    //spustenie casovaca
                     index = 0;
                     alreadyPlayed = false;
                     interval = setInterval(move, 35);
                 }
-            };
-            //get request na octave api
-            var url = endpoint + "?type=car&position=" + obstacle + "&newInput=" + JSON.stringify(newInput) + "&apiKey=" + apiKey;
-            console.log(url);
-            xhttp.open("GET", url, true);
-            xhttp.send();
-
+            });
 
         } else {
             //tooltip sa zobrazi ked sa zadaju nespravne hodnoty

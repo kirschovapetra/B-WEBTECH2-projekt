@@ -107,12 +107,14 @@ function changePosition(lang,keyIsValid){
             //prevod pozicie z cm na m
             position /= -100;
 
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function () {
-                if (this.readyState == 4 && this.status == 200) {
-                    //nacitanie dat z octave
-                    var data = JSON.parse(this.responseText);
+            var requestUrl =  endpoint + "?type=plane&position=" + position + "&newInput=" + JSON.stringify(newInput) + "&apiKey=" + apiKey;
+            console.log(requestUrl);
 
+            //get request na octave api
+            $.get({
+                url: requestUrl,
+                success: function (data) {
+                    //nacitanie dat z octave
                     newInput = data.newInput;
                     positions = data.positions;
                     angles = data.angles;
@@ -120,18 +122,13 @@ function changePosition(lang,keyIsValid){
 
                     plot(lang); //grafy
 
-                    //spustenie casovaca - posuvanie gulicky
+                    //spustenie casovaca
                     index = 0;
                     alreadyPlayed = false;
                     interval = setInterval(move, 100);
                 }
-            };
+            });
 
-            //get request na octave api
-            var url = endpoint + "?type=plane&position=" + position + "&newInput=" + JSON.stringify(newInput) + "&apiKey=" + apiKey;
-            console.log(url);
-            xhttp.open("GET", url, true);
-            xhttp.send();
         } else {
             //tooltip sa zobrazi ked sa zadaju nespravne hodnoty
             $('#positionInput').tooltip('show');

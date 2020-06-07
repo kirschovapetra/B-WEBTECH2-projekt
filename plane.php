@@ -133,7 +133,6 @@ if (isset($_POST["apiKeySubmit"])){
     $encodedValid = json_encode($valid);
     echo "<script>";
     echo "toggleVisibility($encodedValid,'valid-key-show');";
-    echo "changePosition('sk',$encodedValid);";
     echo "</script>";
 }
 ?>
