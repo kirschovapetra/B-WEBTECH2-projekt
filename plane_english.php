@@ -54,10 +54,8 @@ $valid = ($key === $apiKey);
 
     </div>
 
-    <h3>If the number is positive the plane will go up, if it's negative then it will go down.</h3>
-
     <div class="valid-key-show d-flex justify-content-center my-5 align-content-center flex-wrap form-inline">
-
+        <h4>If the number is positive the plane will go up, if it's negative then it will go down.</h4>
         <div class="form-group">
             <label for="position" class="control-label"><b>Position (from -50 to 50):</b> </label>
             <input class="form-control" type="number" name="position" id="positionInput" value="0"  data-placement="bottom" title="Range: from -50 to 50" onchange="changePosition('en',<?=$valid?>)">
