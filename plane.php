@@ -35,7 +35,7 @@ $valid = ($key === $apiKey);
             <li class="nav-item"><a href="ballbeam.php" class="nav-link">GULIČKA</a></li>
             <li class="active nav-item"><a href="plane.php" class="nav-link">LIETADLO</a></li>
             <li class="nav-item"><a href="pendulum.php" class="nav-link">KYVADLO</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">AUTO</a></li>
+            <li class="nav-item"><a href="damping.php" class="nav-link">AUTO</a></li>
             <li class="nav-item"><a href="plane_english.php" class="nav-link">EN</a></li>
         </ul>
     </nav>
@@ -54,10 +54,8 @@ $valid = ($key === $apiKey);
 
     </div>
 
-
-    <h3>Ak zadané hodnoty sú záporné tak lietadlo sa nakloní nadol, pri kladných nahor.</h3>
+    <h4 class="valid-key-show">Ak zadané hodnoty sú záporné tak lietadlo sa nakloní nadol, pri kladných nahor.</h4>
     <div class="valid-key-show d-flex justify-content-center my-5 align-content-center flex-wrap form-inline">
-
         <div class="form-group">
             <label for="position" class="control-label"><b>Poloha lietadla a klapky (od -50 do 50):</b> </label>
             <input class="form-control" type="number" name="position" id="positionInput" value="0"  data-placement="bottom" title="Platné hodnoty: od -50 do 50" onchange="changePosition('sk',<?=$valid?>)">
@@ -135,7 +133,6 @@ if (isset($_POST["apiKeySubmit"])){
     $encodedValid = json_encode($valid);
     echo "<script>";
     echo "toggleVisibility($encodedValid,'valid-key-show');";
-    echo "changePosition('sk',$encodedValid);";
     echo "</script>";
 }
 ?>
