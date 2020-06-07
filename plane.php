@@ -53,9 +53,9 @@ $valid = ($key === $apiKey);
         </form>
 
     </div>
-    
+
+    <h4 class="valid-key-show">Ak zadané hodnoty sú záporné tak lietadlo sa nakloní nadol, pri kladných nahor.</h4>
     <div class="valid-key-show d-flex justify-content-center my-5 align-content-center flex-wrap form-inline">
-        <h4>Ak zadané hodnoty sú záporné tak lietadlo sa nakloní nadol, pri kladných nahor.</h4>
         <div class="form-group">
             <label for="position" class="control-label"><b>Poloha lietadla a klapky (od -50 do 50):</b> </label>
             <input class="form-control" type="number" name="position" id="positionInput" value="0"  data-placement="bottom" title="Platné hodnoty: od -50 do 50" onchange="changePosition('sk',<?=$valid?>)">
