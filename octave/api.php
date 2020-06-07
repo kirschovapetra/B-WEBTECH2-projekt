@@ -26,12 +26,16 @@ function executeAnimation()    {
     if (isset($_GET["type"])) {
         if ($_GET["type"] == "ballbeam") { // [Petra]
             getBallBeamData();
+            statistika("Gulička");
         } else if ($_GET["type"] == "plane") { // [Nika]
             getPlaneData();
+            statistika("Lietadlo");
         } else if ($_GET["type"] == "car") { // [Matus]
             getVehicleDampingData();
+            statistika("Auto");
         } else if ($_GET["type"] == "pendulum") { // [Simona]
             getInvertedPendulumData();
+            statistika("Kyvadlo");
         }
     }
 }
@@ -266,4 +270,14 @@ function logStatus($command, $status)    {
     }
     $db->exec($query);
     
+}
+
+//Statistika [Simona]
+function statistika($model){
+    global $db;
+    try {
+        $sql =  "UPDATE statistika SET pocet = pocet + 1 WHERE sk = ?";
+        $db->prepare($sql)->execute(array($model));
+    } catch (PDOException $e){
+    }
 }

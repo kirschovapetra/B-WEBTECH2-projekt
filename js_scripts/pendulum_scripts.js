@@ -119,7 +119,7 @@ function spracovanieR() {
             $('#positionInput').tooltip({trigger: "manual"}).tooltip('hide');
 
             $.get({
-                url: ADRESA_API + "?type=pendulum&position=" + r + "&newInput=" + JSON.stringify(newInput)+"&apiKey=1234",
+                url: ADRESA_API + "?type=pendulum&position=" + r + "&newInput=" + JSON.stringify(newInput)+"&apiKey=" + apiKey,
                 success: function (data) {
                     // console.log(data);
 
