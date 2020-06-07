@@ -53,7 +53,8 @@ $valid = ($key === $apiKey);
         </form>
 
     </div>
-   <h4 class="valid-key-show">If the number is positive the plane will go up, if it's negative then it will go down.</h4>
+  
+    <h4 class="valid-key-show">If the number is positive the plane will go up, if it's negative then it will go down.</h4>
     <div class="valid-key-show d-flex justify-content-center my-5 align-content-center flex-wrap form-inline">
         <div class="form-group">
             <label for="position" class="control-label"><b>Position (from -50 to 50):</b> </label>
@@ -130,7 +131,6 @@ if (isset($_POST["apiKeySubmit"])){
     $encodedValid = json_encode($valid);
     echo "<script>";
     echo "toggleVisibility($encodedValid,'valid-key-show');";
-    echo "changePosition('sk',$encodedValid);";
     echo "</script>";
 }
 ?>
