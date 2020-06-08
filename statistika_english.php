@@ -1,4 +1,4 @@
-<!-- statistika-->
+<!-- statistika [Simona]-->
 
 <?php
 require "config.php";
@@ -22,7 +22,7 @@ require "config.php";
 
 <body>
 <header class="navbar-light bg-light">
-    <h1>Statistic</h1>
+    <h1>STATISTIC</h1>
     <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-center">
         <ul class="nav navbar-nav">
             <ul class="nav navbar-nav">
@@ -63,12 +63,45 @@ require "config.php";
     ?>
 </div>
 
+<div class="d-flex justify-content-center my-5 align-content-center flex-wrap form-inline">
+    <label>email: <input class="form-control" type="email" placeholder="Enter your email" id="email"></label>
+    <button class="btn btn-primary" onclick="posliMail()">Send</button>
+    <p id="mail">Mail was sent successfully :) Please check your spam folder</p>
+    <p id="chyba_mailu">Ivalid email</p>
+</div>
+
 <footer class="page-footer font-small mt-5">
     <div class="footer-copyright text-center py-3">
         Copyright &copy; 2020 Simona Lopatniková, Petra Kirschová, Matúš Hudák, Veronika Szabóová<br>
         Fakulta elektrotechniky a informatiky Slovenskej technickej univerzity v Bratislave
     </div>
 </footer>
+
+<script>
+    $("#mail").hide();
+    $("#chyba_mailu").hide();
+    function posliMail(){
+        mail_value = document.getElementById('email').value;
+        reg = /^[A-Za-z0-9._%+-]{1,}@[a-zA-Z]{1,}([.]{1}[a-zA-Z]{2,}|[.]{1}[a-zA-Z]{2,}[.]{1}[a-zA-Z]{2,})$/;
+
+        if (reg.test(mail_value) == false) {
+            $("#chyba_mailu").show();
+            return;
+        } else {
+            $("#chyba_mailu").hide();
+        }
+
+        $.ajax({
+            url: "posliMail.php",
+            method: "POST",
+            data: {jazyk: document.getElementsByTagName('html')[0]['lang'], email: mail_value},
+            success: function () {
+                $("#mail").show();
+            }
+        })
+    }
+
+</script>
 
 </body>
 

@@ -16,6 +16,7 @@ var jazyk;
 const MAX_R = 20;
 const ADRESA_API = "octave/api/animation";
 
+//nastavenia
 $(document).ready(function () {
     document.getElementById("graphs-container").style.display = "none";
     canvas = new fabric.Canvas('canvas');
@@ -60,11 +61,13 @@ $(document).ready(function () {
 
 });
 
+// spustenie animacie
 function funkcia2() {
     t = 0;
     interval = setInterval(animacia,50);
 }
 
+//animacia
 function animacia() {
 
     var i = Math.round(t/0.05);
