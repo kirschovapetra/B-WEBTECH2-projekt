@@ -267,20 +267,19 @@ function getPlaneData()    {
 
 //zapis logov do databazy [Petra]
 function logStatus($command, $status)    {
-    global $db;
-    $timestamp = date("Y-m-d H:i:s");
-
-    //prazdny vystup z octave
-    if ($status == false) {
-        $query = "INSERT INTO logs(timestamp,command,status)
-                      VALUES('$timestamp','$command','úspech')";
-    } //octave vratil nejake data
-    else {
-        $query = "INSERT INTO logs(timestamp,command,status,error_info)
-                    VALUES('$timestamp','$command','error','nepodarilo sa vykonat prikaz')";
-    }
-    $db->exec($query);
-
+//    global $db;
+//    $timestamp = date("Y-m-d H:i:s");
+//
+//    //prazdny vystup z octave
+//    if ($status == false) {
+//        $query = "INSERT INTO logs(timestamp,command,status)
+//                      VALUES('$timestamp','$command','úspech')";
+//    } //octave vratil nejake data
+//    else {
+//        $query = "INSERT INTO logs(timestamp,command,status,error_info)
+//                    VALUES('$timestamp','$command','error','nepodarilo sa vykonat prikaz')";
+//    }
+//    $db->exec($query);
 }
 
 //Statistika [Simona]
