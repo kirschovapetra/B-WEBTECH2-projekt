@@ -17,6 +17,6 @@ Veronika
 - [ ] api do pdf
 
 Matus
-- [ ] automobil
-- [ ] api
-- [ ] formular
+- [x] automobil
+- [x] api
+- [x] formular
