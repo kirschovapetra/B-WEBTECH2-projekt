@@ -199,16 +199,3 @@ function spracovanieR() {
         }
     }
 }
-
-function toggleVisibility(show,target) {
-    var targets = document.getElementsByClassName(target);
-
-    if (show){
-        for (var i = 0; i < targets.length; i++)
-            targets[i].style.visibility="visible";
-    }
-    else {
-        for (var i = 0; i < targets.length; i++)
-            targets[i].style.visibility="hidden";
-    }
-}
