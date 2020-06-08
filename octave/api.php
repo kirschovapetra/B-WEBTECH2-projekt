@@ -5,7 +5,7 @@ include "../config.php";
 
 header("Content-Type:application/json");
 
-if (isset($_GET["apiKey"]) && $_GET["apiKey"] == $apiKey) {
+if (isset($_GET["apiKey"]) && $_GET["apiKey"] == "Strong12Key") {
     //data na animacie
     if (isset($_GET["execute"]) && $_GET["execute"] == "animation") {
         executeAnimation();
@@ -15,9 +15,20 @@ if (isset($_GET["apiKey"]) && $_GET["apiKey"] == $apiKey) {
     }
 
 }
-
+//Matus
 function executeCommand() {
     //TODO (Matus)
+    //spustenie prikazu v octave
+    $command = "octave -qf --eval '" . $_GET["input"] . "'";
+    exec($command, $octaveOutput, $returnVal);
+    //zapis logu do databazy
+    logStatus($command, empty($octaveOutput));
+
+    $out = array();
+    $out["response"] = $octaveOutput;
+    //vypis
+    echo json_encode($out);
+
 }
 
 
@@ -265,5 +276,5 @@ function logStatus($command, $status)    {
                     VALUES('$timestamp','$command','error','nepodarilo sa vykonat prikaz')";
     }
     $db->exec($query);
-    
+
 }

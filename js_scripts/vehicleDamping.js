@@ -152,16 +152,16 @@ function move(){
     }
 
     if (!alreadyPlayed) {
-        var translation = carPositions[index] *60 +76.30546 ; //hodnota z octave upravena aby sa zmestila do svg, 76.30546 poloha y osi
-        var rotation = rad2deg(wheelPositions[index]); //hodnota z octave
+        var carPosition = carPositions[index]  ; //hodnota z octave upravena aby sa zmestila do svg, 76.30546 poloha y osi
+        var wheelPosition = wheelPositions[index]; //hodnota z octave
         var timeMove = times[index]; //cas podla neho pojde auto/koleso do predu
 
-        document.getElementById("carContruction").style.transformOrigin = "center"; //bod rotacie tyce
+        //document.getElementById("carContruction").style.transformOrigin = "center"; //bod rotacie tyce
         //document.getElementById("carContruction").style.transform = "rotate("+timeMove*100+"x)"; //rotacia
-        document.getElementById("carContruction").setAttribute('x',timeMove + "px");
+        document.getElementById("holder").setAttribute('y',carPosition + "px");
 
-        document.getElementById("wheelA").setAttribute('cy', translation + "px"); //presun gulicky na novu x suradnicu
-        document.getElementById("wheelB").setAttribute('cy', translation + "px"); //presun gulicky na novu x suradnicu
+        //document.getElementById("wheelA").setAttribute('cy', wheelPosition + "px");
+        //document.getElementById("wheelB").setAttribute('cy', wheelPosition + "px");
 
         index++;
     }
