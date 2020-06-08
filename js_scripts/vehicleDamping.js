@@ -124,7 +124,7 @@ function changeGraph(lang,keyIsValid){ //(lang,keyIsValid)
                     //spustenie casovaca
                     index = 0;
                     alreadyPlayed = false;
-                    interval = setInterval(move, 35);
+                    interval = setInterval(move, 45);
                 }
             });
 
@@ -147,21 +147,24 @@ function move(){
         index = 0;
         alreadyPlayed = true;
         clearInterval(interval);
-        document.getElementById("wheelA").setAttribute('cy', 76.30546 + "px");
-        document.getElementById("wheelB").setAttribute('cy', 76.30546 + "px");
     }
 
     if (!alreadyPlayed) {
-        var carPosition = carPositions[index]  ; //hodnota z octave upravena aby sa zmestila do svg, 76.30546 poloha y osi
-        var wheelPosition = wheelPositions[index]; //hodnota z octave
-        var timeMove = times[index]; //cas podla neho pojde auto/koleso do predu
+        //auto
+        var carPosition = carPositions[index] * 21 +38 ; //hodnota z octave upravena aby sa zmestila do svg, 76.30546 poloha y osi
+        var caretPosition2 = carPositions[index] * 21 +32;
+        //kolesa
+        var wheelPosition = wheelPositions[index] * 210 + 76.30546; //hodnota z octave
 
-        //document.getElementById("carContruction").style.transformOrigin = "center"; //bod rotacie tyce
-        //document.getElementById("carContruction").style.transform = "rotate("+timeMove*100+"x)"; //rotacia
         document.getElementById("holder").setAttribute('y',carPosition + "px");
-
-        //document.getElementById("wheelA").setAttribute('cy', wheelPosition + "px");
-        //document.getElementById("wheelB").setAttribute('cy', wheelPosition + "px");
+        //zelena vec
+        document.getElementById("rect20").setAttribute('y',caretPosition2 + "px");
+        //kolesa
+        document.getElementById("wheelA").setAttribute('cy', wheelPosition + "px");
+        document.getElementById("wheelB").setAttribute('cy', wheelPosition + "px");
+        //biele kolesa
+        document.getElementById("wheelBlankA").setAttribute('cy', wheelPosition + "px");
+        document.getElementById("wheelBlankB").setAttribute('cy', wheelPosition + "px");
 
         index++;
     }

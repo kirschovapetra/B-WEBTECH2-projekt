@@ -280,7 +280,6 @@ function logStatus($command, $status)    {
                     VALUES('$timestamp','$command','error','nepodarilo sa vykonat prikaz')";
     }
     $db->exec($query);
-
 }
 
 //Statistika [Simona]
