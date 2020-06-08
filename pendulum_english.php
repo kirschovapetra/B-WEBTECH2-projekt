@@ -25,6 +25,8 @@ $valid = ($key === $apiKey);
 
     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/fabric.js/1.5.0/fabric.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
+    <script src="js_scripts/general.js"></script>
     <script src="js_scripts/pendulum_scripts.js"></script>
 </head>
 
@@ -34,6 +36,7 @@ $valid = ($key === $apiKey);
     <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-center">
         <ul class="nav navbar-nav">
             <li class="nav-item"><a href="index_english.php" class="nav-link">HOME</a></li>
+            <li class="nav-item"><a href="command_english.php" class="nav-link">EXECUTE COMMAND</a></li>
             <li class="nav-item"><a href="ballbeam_english.php" class="nav-link">BALL</a></li>
             <li class="nav-item"><a href="plane_english.php" class="nav-link">PLANE</a></li>
             <li class="active nav-item"><a href="pendulum_english.php" class="nav-link">PENDULUM</a></li>

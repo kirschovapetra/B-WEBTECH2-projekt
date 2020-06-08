@@ -15,11 +15,13 @@ if (isset($_GET["apiKey"]) && $_GET["apiKey"] == "Strong12Key") {
     }
 
 }
-//Matus
+// spustenie prikazu [Matus]
 function executeCommand() {
-    //TODO (Matus)
+    //nahradi jednoduche uvodzovky
+    $octaveInput = str_replace("'","%27",$_GET["input"]);
+
     //spustenie prikazu v octave
-    $command = "octave -qf --eval '" . $_GET["input"] . "'";
+    $command = "octave -qf --eval '" . $octaveInput. " '";
     exec($command, $octaveOutput, $returnVal);
     //zapis logu do databazy
     logStatus($command, empty($octaveOutput));
@@ -269,17 +271,22 @@ function getPlaneData()    {
 function logStatus($command, $status)    {
     global $db;
     $timestamp = date("Y-m-d H:i:s");
+    $escapedCommand = addslashes($command);
 
-    //prazdny vystup z octave
-    if ($status == false) {
-        $query = "INSERT INTO logs(timestamp,command,status)
-                      VALUES('$timestamp','$command','úspech')";
-    } //octave vratil nejake data
-    else {
-        $query = "INSERT INTO logs(timestamp,command,status,error_info)
-                    VALUES('$timestamp','$command','error','nepodarilo sa vykonat prikaz')";
-    }
-    $db->exec($query);
+    $escapedCommand = str_replace("+", "\+", $escapedCommand);
+
+    try {
+        //prazdny vystup z octave
+        if ($status == false) {
+            $query = "INSERT INTO logs(timestamp,command,status)
+                      VALUES('$timestamp','$escapedCommand','úspech')";
+        } //octave vratil nejake data
+        else {
+            $query = "INSERT INTO logs(timestamp,command,status,error_info)
+                    VALUES('$timestamp','$escapedCommand','error','nepodarilo sa vykonat prikaz')";
+        }
+        $db->exec($query);
+    } catch (PDOException $e){}
 }
 
 //Statistika [Simona]
