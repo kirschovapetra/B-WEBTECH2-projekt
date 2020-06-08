@@ -3,7 +3,7 @@
 Sima
 - [x] kyvadlo
 - [x] api
-- [ ] statistika + email
+- [x] statistika + email
 
 Petra
 - [x] gulicka 
