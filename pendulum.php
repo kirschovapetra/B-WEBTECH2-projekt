@@ -101,7 +101,7 @@ $valid = ($key === $apiKey);
     </div>
 </footer>
 
-
+<!-- Api kluc -->
 <?php
 if (isset($_POST["apiKeySubmit"])){
     $key = $_POST["apiKey"];

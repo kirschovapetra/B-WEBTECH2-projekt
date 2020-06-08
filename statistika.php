@@ -1,4 +1,4 @@
-<!-- statistika-->
+<!-- statistika [Simona]-->
 
 <?php
 require "config.php";
@@ -23,7 +23,7 @@ require "config.php";
 
 <body>
 <header class="navbar-light bg-light">
-    <h1>Štatistika</h1>
+    <h1>ŠTATISTIKA</h1>
     <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-center">
         <ul class="nav navbar-nav">
             <li class="nav-item"><a href="index.php" class="nav-link">DOMOV</a></li>
@@ -64,10 +64,10 @@ require "config.php";
 
 </div>
 
-<div class="centrovanie">
+<div class="d-flex justify-content-center my-5 align-content-center flex-wrap form-inline">
     <label>email: <input class="form-control" type="email" placeholder="Zadajte mail" id="email"></label>
     <button class="btn btn-primary" onclick="posliMail()">Odoslať</button>
-    <p id="mail">Mail bol úspešne odoslaný :)</p>
+    <p id="mail">Mail bol úspešne odoslaný :) Skontrolujte si spam.</p>
     <p id="chyba_mailu">Neplatný mail</p>
 </div>
 
