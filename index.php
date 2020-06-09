@@ -71,7 +71,7 @@
         </div>
 
         <div class="d-flex justify-content-center mt-3 mb-5">
-            <a href="export/nikaExportSK.php"> <input type="submit" class="btn btn-primary" name="exportNika" id="exportNika" value="Exportovať informácie do PDF"></a>
+            <a href="export/nikaExport.php"> <input type="submit" class="btn btn-primary" name="exportNika" id="exportNika" value="Exportovať informácie do PDF"></a>
         </div>
         <hr>
         <h3 class="text-center mt-5">Rozdelenie úloh</h3>
