@@ -1,5 +1,5 @@
 <?php
-//export tabulky "logs" do pdf [Petra]
+//export popisu api do pdf [Veronika]
 
 require "../config.php";
 require 'fpdf/fpdf.php';

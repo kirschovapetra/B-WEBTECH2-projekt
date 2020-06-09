@@ -4,7 +4,7 @@ $key = isset($_POST['apiKey'])? $_POST['apiKey'] : "";
 
 $valid = ($key === $apiKey);
 ?>
-<!-- Plane [Nika] -->
+<!-- Plane [Veronika] -->
 <!DOCTYPE html>
 <html lang="sk">
 <head>

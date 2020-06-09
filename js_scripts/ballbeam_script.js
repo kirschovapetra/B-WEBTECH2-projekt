@@ -77,8 +77,6 @@ function plot(lang){
         };
     }
 
-
-
     Plotly.newPlot('positionGraph', data1, layout1);
     Plotly.newPlot('angleGraph', data2, layout2);
 }
@@ -123,8 +121,6 @@ function changePosition(lang,keyIsValid){
                }
            });
 
-
-
        } else {
            //tooltip sa zobrazi ked sa zadaju nespravne hodnoty
            $('#positionInput').tooltip('show');
@@ -134,7 +130,7 @@ function changePosition(lang,keyIsValid){
 
 //posun lopticky
 function move(){
-    //ked prejde cele pole, tak sa vynuluje stav
+
     if(index >= positions.length){
         index = 0;
         alreadyPlayed = true;

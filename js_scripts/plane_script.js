@@ -1,4 +1,4 @@
-/************************************* Plane [Nika] *************************************/
+/************************************* Plane [Veronika] *************************************/
 
 var times = []
 var positions = [];
@@ -101,7 +101,7 @@ function changePosition(lang,keyIsValid){
         //nacitanie vstupu
         var position = document.getElementById("positionInput").value;
 
-        //rozsah pozicie je 0-100
+        //rozsah -50 az 50
         if (!isNaN(position) && position >= -50 && position <= 50) {
 
             //prevod pozicie z cm na m

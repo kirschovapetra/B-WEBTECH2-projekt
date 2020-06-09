@@ -1,9 +1,5 @@
 <!-- uvodna stranka [Veronika, Petra] -->
 
-<?php
-
-?>
-
 <!DOCTYPE html>
 <html lang="sk">
     <head>
@@ -43,7 +39,7 @@
             </nav>
         </header>
 
-
+		<!-- [Petra] -->
         <h3 class="text-center mt-5">Export logov</h3>
         <div class="d-flex justify-content-center mt-3 mb-5">
             <a href="export/exportToCSV.php?lang=sk"><input type="submit" class="btn btn-primary" name="exportCSV" id="exportCSV" value="Export logov do CSV"></a>
@@ -51,20 +47,21 @@
         </div>
 
         <hr>
+		<!-- [Veronika] -->
         <h3 class="text-center mt-5">Popis API</h3>
         <div class="d-flex justify-content-center mt-3 mb-5">
-        <p>Všetky možnosti animácie: gulička, lietadlo, kývadlo aj auto majú vlastný typ, pomocou čoho sa naša aplikácia rozhoduje ktorý príkaz ideme vykonať.
+        <p>Všetky možnosti animácie: gulička, lietadlo, kyvadlo aj auto majú vlastný typ, pomocou čoho sa naša aplikácia rozhoduje ktorý príkaz ideme vykonať.
             <br>
-        Tieto príkazy zbehnú, ak sa pristúpime k animáciám a zmeníme počiatočnú hodnotu. Ak otvoríme inspect stránky tak tieto výpisy nájdeme v Console.
+        Tieto príkazy zbehnú, ak pristúpime k animáciám a zmeníme počiatočnú hodnotu. Ak otvoríme inspect stránky tak tieto výpisy nájdeme v Console.
         <br>
             Príklad na výpisy po zadaní hodnoty 20:<br>
         <i>Gulička, Kyvadlo, Auto</i><br>
         <b>octave/api/animation?type=ballbeam&position=0.2&newInput=[0,0,0,0]&apiKey=Strong12Key</b><br>
-        Zmena medzi príkazmi je hodnota za type =. V prípade gulicky sa tam doplní hodnota ballbeam, v prípade kyvadla a v prípade auta tam ide car. <br>Zadaná hodnota sa uloží do position, teda ak sme zadali 20, tak sa to uloží ako position=0.2.
+        Zmena medzi príkazmi je hodnota za type =. V prípade guličky sa tam doplní hodnota ballbeam, v prípade kyvadla pendulum a v prípade auta tam ide car. <br>Zadaná hodnota sa uloží do position, teda ak sme zadali 20, tak sa to uloží ako position=0.2.
             <br>
         <i>Lietadlo:</i><br>
         <b>octave/api/animation?type=plane&position=-0.2&newInput=[0,0,0]&apiKey=Strong12Key</b><br>
-        V prípade lietadla hodnoty position sú obrátené. Ak do poľa zadáme hodnotu 20, tak príklad zbehne s hodnotou -20, <br>aby pri kladných hodnotách lietadlo išiel hore, a pri záporných išiel dole.
+        V prípade lietadla hodnoty position sú obrátené. Ak do poľa zadáme hodnotu 20, tak príklad zbehne s hodnotou -20, <br>aby pri kladných hodnotách lietadlo išlo hore, a pri záporných išlo dole.
             <br><br>
         <b>octave/api/command?input=1%2B1&apiKey=Strong12Key</b><br>
             Funkcia vráti výsledok z octave po vykonaní zadaného príkazu. Na príklade vidíme ako vyzerá ak zadám 1+1 do pola. Výsledná hodnota je ans = 2</p>
@@ -74,6 +71,7 @@
             <a href="export/nikaExport.php"> <input type="submit" class="btn btn-primary" name="exportNika" id="exportNika" value="Exportovať informácie do PDF"></a>
         </div>
         <hr>
+		<!-- [Petra] -->
         <h3 class="text-center mt-5">Rozdelenie úloh</h3>
         <div class="d-flex justify-content-center mt-3 mb-5">
             <table class="table table-bordered" style="width:70%">
