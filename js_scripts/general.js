@@ -1,4 +1,6 @@
-//prepinanie zobrazenia animacie a grafov
+/******************************* pomocne funkcie [Petra] ******************************/
+
+//prepinanie vlastnosti "display"
 function toggleDisplay(show,target) {
     var targets = document.getElementsByClassName(target);
 
@@ -12,6 +14,7 @@ function toggleDisplay(show,target) {
     }
 }
 
+//prepinanie vlastnosti "visibility"
 function toggleVisibility(show,target) {
     var targets = document.getElementsByClassName(target);
 

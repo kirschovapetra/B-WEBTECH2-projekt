@@ -44,7 +44,7 @@ require "config.php";
     </nav>
 </header>
 
-<div class="text">
+<div class="text mt-4">
     <u>Authors:</u>
     <ul>
         <li>Petra Kirschová</li>
@@ -58,14 +58,19 @@ require "config.php";
     <code>sudo apt-get install sendmail</code><br>
     <code>sudo sendmailconfig</code><br>
 
-    <br<p><u>Úprava/etc/hosts</u></p>
-    <p>127.0.0.1 localhost <span class="zvyrazni">localhost.localdomain os-webtech3-1</span></p>
+    <br><u>Edit /etc/hosts: </u><br>
+    127.0.0.1 localhost <span class="zvyrazni">localhost.localdomain os-webtech3-1</span><br>
 
-    <u>Octave installation</u><br>
-    <code>sudo apt install octave liboctave-dev</code><br>
-    <code>liboctave-dev is required to install packages from octave forge</code><br>
+    <br><u>Octave installation: </u><br>
+    <code>sudo apt install octave</code><br>
 
-    <br><p><u>Animations:</u></p><br>
+    <br><u>Inštalácia liboctave-dev (required to install packages from octave forge): </u><br>
+    <code>sudo apt install liboctave-dev</code><br>
+
+    <br><u>Control package installation: </u><br>
+    <code>sudo pkg install -global -forge control</code><br>
+
+    <br><p><u>Animations:</u></p>
     <p><b>Inverted Pendulum:</b></p>
     <ul>
         <li>input: required new position of the pendulum r</li>

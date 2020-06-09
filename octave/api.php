@@ -279,11 +279,11 @@ function logStatus($command, $status)    {
         //prazdny vystup z octave
         if ($status == false) {
             $query = "INSERT INTO logs(timestamp,command,status)
-                      VALUES('$timestamp','$escapedCommand','úspech')";
+                      VALUES('$timestamp','$escapedCommand','uspech')";
         } //octave vratil nejake data
         else {
             $query = "INSERT INTO logs(timestamp,command,status,error_info)
-                    VALUES('$timestamp','$escapedCommand','chyba','nepodarilo sa vykonať príkaz')";
+                    VALUES('$timestamp','$escapedCommand','chyba','nepodarilo sa vykonat prikaz')";
         }
         $db->exec($query);
     } catch (PDOException $e){}

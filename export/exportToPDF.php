@@ -1,9 +1,8 @@
 <?php
-//export tabulky "logs" do pdf [Petra]
+/******************************* export tabulky "logs" do pdf [Petra] ******************************/
 
 require "../config.php";
 require 'fpdf/fpdf.php';
-
 
 //https://phpflow.com/php/generate-pdf-file-mysql-database-using-php/
 class PDF extends FPDF {
@@ -65,6 +64,7 @@ if (isset($language)) {
     $pdf = new PDF($language);
     $pdf->AddPage();
     $pdf->AliasNbPages();
+
     $pdf->SetFont('Arial','B',8);
 
     //zapis headeru do pdf
@@ -76,17 +76,15 @@ if (isset($language)) {
 
     //zapis riadkov do pdf
     foreach($rows as $row) {
-        // kodovanie windows-1252
-        $encodedStatus = iconv('UTF-8', 'windows-1252', $row["status"]);
-        $encodedCommand = iconv('UTF-8', 'windows-1252', $row["command"]);
-
+        // kodovanie ISO-8859-2
+        $encodedCommand = iconv('UTF-8', 'ISO-8859-2', $row["command"]);
 
         $pdf->Ln();
         $pdf->Cell(10, 20, $row["id"], 1);
         $pdf->Cell(30, 20, $row["timestamp"], 1);
         //viacriadkova bunka s paddingom
         $pdf->MultiAlignCell( 180, 4, str_pad(trim($encodedCommand), 900), 1);
-        $pdf->Cell(13, 20,$encodedStatus, 1);
+        $pdf->Cell(13, 20,$row["status"], 1);
         $pdf->Cell(42, 20, $row["error_info"], 1);
     }
 
