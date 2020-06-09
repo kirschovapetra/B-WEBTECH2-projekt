@@ -17,12 +17,15 @@ if (isset($language)) {
 
         //zapis headeru do csv
         $columns = array("id", "timestamp","command", "status", "error_info");
-        fputcsv($f, $columns, ",");
+        fputcsv($f, $columns, ";");
 
         //zapis riadkov do csv
         foreach($results as $result){
-            $row = array($result['id'], $result['timestamp'], $result['command'], $result['status'], $result['error_info']);
-            fputcsv($f, $row, ",");
+            $encodedStatus = iconv('UTF-8', 'windows-1252', $result["status"]);
+            $encodedCommand = iconv('UTF-8', 'windows-1252', $result["command"]);
+
+            $row = array($result['id'], $result['timestamp'], $encodedCommand, $encodedStatus, $result['error_info']);
+            fputcsv($f, $row, ";");
         }
 
         fseek($f, 0); //posun na zaciatok

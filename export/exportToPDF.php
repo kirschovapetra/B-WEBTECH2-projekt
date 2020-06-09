@@ -71,18 +71,23 @@ if (isset($language)) {
     $pdf->Cell(10, 5, "id", 1);
     $pdf->Cell(30, 5,"timestamp", 1);
     $pdf->Cell(180, 5, "command", 1);
-    $pdf->Cell(15, 5, "status", 1);
-    $pdf->Cell(40, 5, "error_info", 1);
+    $pdf->Cell(13, 5, "status", 1);
+    $pdf->Cell(42, 5, "error_info", 1);
 
     //zapis riadkov do pdf
     foreach($rows as $row) {
+        // kodovanie windows-1252
+        $encodedStatus = iconv('UTF-8', 'windows-1252', $row["status"]);
+        $encodedCommand = iconv('UTF-8', 'windows-1252', $row["command"]);
+
+
         $pdf->Ln();
         $pdf->Cell(10, 20, $row["id"], 1);
         $pdf->Cell(30, 20, $row["timestamp"], 1);
         //viacriadkova bunka s paddingom
-        $pdf->MultiAlignCell( 180, 4, str_pad(trim($row["command"]), 900), 1);
-        $pdf->Cell(15, 20, $row["status"], 1);
-        $pdf->Cell(40, 20, $row["error_info"], 1);
+        $pdf->MultiAlignCell( 180, 4, str_pad(trim($encodedCommand), 900), 1);
+        $pdf->Cell(13, 20,$encodedStatus, 1);
+        $pdf->Cell(42, 20, $row["error_info"], 1);
     }
 
     //zapis vystupu do pdf, otvori sa nova stranka
