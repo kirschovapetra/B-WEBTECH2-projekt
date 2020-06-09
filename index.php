@@ -51,6 +51,7 @@
         </div>
 
         <hr>
+        <h3 class="text-center mt-5">Popis API</h3>
         <div class="d-flex justify-content-center mt-3 mb-5">
         <p>Všetky možnosti animácie: gulička, lietadlo, kývadlo aj auto majú vlastný typ, pomocou čoho sa naša aplikácia rozhoduje ktorý príkaz ideme vykonať.
             <br>
@@ -68,8 +69,11 @@
         <b>octave/api/command?input=1%2B1&apiKey=Strong12Key</b><br>
             Funkcia vráti výsledok z octave po vykonaní zadaného príkazu. Na príklade vidíme ako vyzerá ak zadám 1+1 do pola. Výsledná hodnota je ans = 2</p>
         </div>
-        <hr>
 
+        <div class="d-flex justify-content-center mt-3 mb-5">
+            <a href="export/nikaExportSK.php"> <input type="submit" class="btn btn-primary" name="exportNika" id="exportNika" value="Exportovať informácie do PDF"></a>
+        </div>
+        <hr>
         <h3 class="text-center mt-5">Rozdelenie úloh</h3>
         <div class="d-flex justify-content-center mt-3 mb-5">
             <table class="table table-bordered" style="width:70%">

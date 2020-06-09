@@ -1,0 +1,14 @@
+V¹etky mo¾nosti animácie: gulièka, lietadlo, kývadlo aj auto majú vlastný typ, pomocou èoho sa na¹a aplikácia rozhoduje ktorý príkaz ideme vykona».
+Tieto príkazy zbehnú, ak sa pristúpime k animáciám a zmeníme poèiatoènú hodnotu. Ak otvoríme inspect stránky tak tieto výpisy nájdeme v Console.
+Príklad na výpisy po zadaní hodnoty 20:
+Gulièka, Kyvadlo, Auto
+octave/api/animation?type=ballbeam&position=0.2&newInput=[0,0,0,0]&apiKey=Strong12Key
+Zmena medzi príkazmi je hodnota za type =. V prípade gulièky sa tam doplní hodnota ballbeam, v prípade kyvadla a v prípade auta tam ide car.
+Zadaná hodnota sa ulo¾í do position, teda ak sme zadali 20, tak sa to ulo¾í ako position=0.2.
+Lietadlo:
+octave/api/animation?type=plane&position=-0.2&newInput=[0,0,0]&apiKey=Strong12Key
+V prípade lietadla hodnoty position sú obrátené. Ak do poµa zadáme hodnotu 20, tak príklad zbehne s hodnotou -20,
+aby pri kladných hodnotách lietadlo i¹iel hore, a pri záporných i¹iel dole.
+
+octave/api/command?input=1%2B1&apiKey=Strong12Key
+Funkcia vráti výsledok z octave po vykonaní zadaného príkazu. Na príklade vidíme ako vyzerá ak zadám 1+1 do pola. Výsledná hodnota je ans = 2
