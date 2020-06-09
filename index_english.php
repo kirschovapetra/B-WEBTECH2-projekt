@@ -1,10 +1,5 @@
 <!-- uvodna stranka (en) [Veronika, Petra] -->
 
-<?php
-require "config.php";
-
-?>
-
 <!DOCTYPE html>
 <html lang="sk">
     <head>
@@ -44,6 +39,7 @@ require "config.php";
             </nav>
         </header>
 
+		<!-- [Petra] -->
         <h3 class="text-center mt-5">Export logs</h3>
         <div class="d-flex justify-content-center mt-3 mb-5">
             <a href="export/exportToCSV.php?lang=en"><input type="submit" class="btn btn-primary" name="exportCSV" id="exportCSV" value="Export logs to CSV"></a>
@@ -51,6 +47,7 @@ require "config.php";
         </div>
 
         <hr>
+		<!-- [Veronika] -->
         <h3 class="text-center mt-5">API description</h3>
         <div class="d-flex justify-content-center mt-3 mb-5">
             <p>All types of the animations have their own type what helps us determine which animation do we want to run.
@@ -75,7 +72,7 @@ require "config.php";
 
 
         <hr>
-
+		<!-- [Petra] -->
         <h3 class="text-center mt-5">Task division</h3>
         <div class="d-flex justify-content-center mt-3 mb-5">
             <table class="table table-bordered" style="width:70%">

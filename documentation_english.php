@@ -1,9 +1,4 @@
-<!-- uvodna stranka - EN [Simona]-->
-
-<?php
-require "config.php";
-
-?>
+<!-- dokumentacia (en) [Simona]-->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -85,7 +80,7 @@ require "config.php";
         <li>output: current ball position N*x (:,1)</li>
         <li>current bar inclination (angle in radians) x(:,3)</li>
     </ul>
-    <p><u>More details: </u> <a href="http://ctms.engin.umich.edu/CTMS/index.php?example=Suspension&section=SystemModeling">HERE</a></p>
+    <p><u>More details: </u> <a href="http://ctms.engin.umich.edu/CTMS/index.php?example=BallBeam&section=SystemModeling">HERE</a></p>
 
     <p><b>Vehicle damping</b></p>
     <ul>
@@ -93,7 +88,7 @@ require "config.php";
         <li>output: current vehicle position x(:,1) </li>
         <li>current wheel position x(:,3)</li>
     </ul>
-    <p><u>More details: </u> <a href="http://ctms.engin.umich.edu/CTMS/index.php?example=BallBeam&section=SystemModeling">HERE</a></p>
+    <p><u>More details: </u> <a href="http://ctms.engin.umich.edu/CTMS/index.php?example=Suspension&section=SystemModeling">HERE</a></p>
 
     <p><b>Plane: </b></p>
     <ul>

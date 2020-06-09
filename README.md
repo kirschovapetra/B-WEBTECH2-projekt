@@ -13,8 +13,8 @@ Petra
 Veronika
 - [x] lietadlo 
 - [x] api 
-- [ ] popis api
-- [ ] api do pdf
+- [x] popis api
+- [x] api do pdf
 
 Matus
 - [x] automobil

@@ -78,7 +78,7 @@ require "config.php";
 </div>
 
 
-<footer class="page-footer font-small mt-5 bg-light fixed-bottom">
+<footer class="page-footer font-small mt-5 bg-light">
     <div class="footer-copyright text-center py-3">
         Copyright &copy; 2020 Simona Lopatniková, Petra Kirschová, Matúš Hudák, Veronika Szabóová<br>
         Fakulta elektrotechniky a informatiky Slovenskej technickej univerzity v Bratislave

@@ -1,8 +1,4 @@
-<!-- uvodna stranka [Simona] -->
-
-<?php
-
-?>
+<!-- dokumentacia [Simona] -->
 
 <!DOCTYPE html>
 <html lang="sk">

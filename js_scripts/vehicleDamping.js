@@ -149,7 +149,7 @@ function move(){
         var carPosition = carPositions[index] * 21 +38 ; //hodnota z octave upravena aby sa zmestila do svg, 38 poloha y osi
         var caretPosition2 = carPositions[index] * 21 +32;
         //kolesa
-        var wheelPosition = wheelPositions[index] * 210 + 76.30546; //hodnota z octave
+        var wheelPosition = wheelPositions[index] * 210 + 76.30546;
 
         document.getElementById("holder").setAttribute('y',carPosition + "px");
         //zelena vec
