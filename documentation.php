@@ -43,7 +43,7 @@
     </nav>
 </header>
 
-<div class="text">
+<div class="text mt-4">
     <u>Autori:</u>
         <ul>
             <li>Petra Kirschová</li>
@@ -57,14 +57,19 @@
     <code>sudo apt-get install sendmail</code><br>
     <code>sudo sendmailconfig</code><br>
 
-    <br<p><u>Úprava/etc/hosts</u></p>
-    <p>127.0.0.1 localhost <span class="zvyrazni">localhost.localdomain os-webtech3-1</span></p>
+    <br><u>Úprava /etc/hosts:</u><br>
+    127.0.0.1 localhost <span class="zvyrazni">localhost.localdomain os-webtech3-1</span><br>
 
-    <u>Inštalácia octave</u><br>
-    <code>sudo apt install octave liboctave-dev</code><br>
-    <code>liboctave-dev je potrebné pre inštaláciu packageov z octave forge</code><br>
+    <br><u>Inštalácia Octave: </u><br>
+    <code>sudo apt install octave</code><br>
 
-    <br><p><u>Animácie:</u></p><br>
+    <br><u>Inštalácia liboctave-dev (potrebné pre inštaláciu packageov z octave forge): </u><br>
+    <code>sudo apt install liboctave-dev</code><br>
+
+    <br><u>Inštalácia control package: </u><br>
+    <code>sudo pkg install -global -forge control</code><br>
+
+    <br><p><u>Animácie:</u></p>
     <p><b>Inverzné kyvadlo:</b></p>
     <ul>
         <li>vstup: požadovaná nová poloha kyvadla r</li>
@@ -79,7 +84,7 @@
         <li>výstup: aktuálna pozícia guličky N*x(:,1)</li>
         <li>aktuálny náklon tyče (uhol v radiánoch)  x(:,3)</li>
     </ul>
-    <p><u>Podrobnejšie: </u> <a href="http://ctms.engin.umich.edu/CTMS/index.php?example=Suspension&section=SystemModeling">TU</a></p>
+    <p><u>Podrobnejšie: </u> <a href="http://ctms.engin.umich.edu/CTMS/index.php?example=BallBeam&section=SystemModeling">TU</a></p>
 
     <p><b>Tlmič auta:</b></p>
     <ul>
@@ -87,7 +92,7 @@
         <li>výstup: aktuálna pozícia vozidla x(:,1) </li>
         <li>aktuálna pozícia kolesa x(:,3)</li>
     </ul>
-    <p><u>Podrobnejšie: </u> <a href="http://ctms.engin.umich.edu/CTMS/index.php?example=BallBeam&section=SystemModeling">TU</a></p>
+    <p><u>Podrobnejšie: </u> <a href="http://ctms.engin.umich.edu/CTMS/index.php?example=Suspension&section=SystemModeling">TU</a></p>
 
     <p><b>Náklon lietadla: </b></p>
     <ul>
@@ -97,8 +102,6 @@
     </ul>
     <p><u>Podrobnejšie: </u> <a href="http://ctms.engin.umich.edu/CTMS/index.php?example=AircraftPitch&section=SystemModeling">TU</a></p>
 </div>
-
-
 
 <footer class="page-footer font-small mt-5 bg-light">
     <div class="footer-copyright text-center py-3">

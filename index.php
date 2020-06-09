@@ -1,4 +1,4 @@
-<!-- uvodna stranka -->
+<!-- uvodna stranka [Veronika, Petra] -->
 
 <?php
 
@@ -148,7 +148,7 @@
                 </tr>
                 <tr>
                     <td class="description">Technická dokumentácia</td>
-                    <td></td>
+                    <td class="check">&#10004;</td>
                     <td></td>
                     <td></td>
                     <td></td>

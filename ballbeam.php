@@ -1,10 +1,12 @@
+<!-- Ball & Beam [Petra] -->
+
 <?php
 require "config.php";
 $key = isset($_POST['apiKey'])? $_POST['apiKey'] : "";
 
 $valid = ($key === $apiKey);
 ?>
-<!-- Ball & Beam [Petra] -->
+
 <!DOCTYPE html>
 <html lang="sk">
     <head>
@@ -46,7 +48,7 @@ $valid = ($key === $apiKey);
             </nav>
         </header>
 
-        <!-- vstup -->
+        <!-- api kluc -->
         <div class="d-flex justify-content-center align-content-center flex-wrap flex-column">
 
             <div class="d-flex justify-content-center my-5 align-content-center flex-wrap form-inline">
@@ -59,6 +61,7 @@ $valid = ($key === $apiKey);
 
             </div>
 
+            <!-- vstup -->
             <div class="valid-key-show d-flex justify-content-center my-5 align-content-center flex-wrap form-inline">
 
                 <div class="form-group">
@@ -107,6 +110,7 @@ $valid = ($key === $apiKey);
 
 
         <?php
+            //zobrazenie stranky po zadani spravneho api kluca
             if (isset($_POST["apiKeySubmit"])){
                 $key = $_POST["apiKey"];
                 $valid = ($key === $apiKey);

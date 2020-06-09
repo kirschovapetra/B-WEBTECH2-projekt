@@ -1,4 +1,4 @@
-<!-- uvodna stranka - EN -->
+<!-- uvodna stranka (en) [Veronika, Petra] -->
 
 <?php
 require "config.php";
@@ -148,7 +148,7 @@ require "config.php";
                 </tr>
                 <tr>
                     <td class="description">Technical documentation</td>
-                    <td></td>
+                    <td class="check">&#10004;</td>
                     <td></td>
                     <td></td>
                     <td></td>
