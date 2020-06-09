@@ -15,11 +15,13 @@ if (isset($_GET["apiKey"]) && $_GET["apiKey"] == "Strong12Key") {
     }
 
 }
-//Matus
+// spustenie prikazu [Matus]
 function executeCommand() {
-    //TODO (Matus)
+    //nahradi jednoduche uvodzovky
+    $octaveInput = str_replace("'","%27",$_GET["input"]);
+
     //spustenie prikazu v octave
-    $command = "octave -qf --eval '" . $_GET["input"] . "'";
+    $command = "octave -qf --eval '" . $octaveInput. " '";
     exec($command, $octaveOutput, $returnVal);
     //zapis logu do databazy
     logStatus($command, empty($octaveOutput));
@@ -37,12 +39,16 @@ function executeAnimation()    {
     if (isset($_GET["type"])) {
         if ($_GET["type"] == "ballbeam") { // [Petra]
             getBallBeamData();
+            statistika("Gulička");
         } else if ($_GET["type"] == "plane") { // [Nika]
             getPlaneData();
+            statistika("Lietadlo");
         } else if ($_GET["type"] == "car") { // [Matus]
             getVehicleDampingData();
+            statistika("Auto");
         } else if ($_GET["type"] == "pendulum") { // [Simona]
             getInvertedPendulumData();
+            statistika("Kyvadlo");
         }
     }
 }
@@ -263,17 +269,32 @@ function getPlaneData()    {
 
 //zapis logov do databazy [Petra]
 function logStatus($command, $status)    {
-//    global $db;
-//    $timestamp = date("Y-m-d H:i:s");
-//
-//    //prazdny vystup z octave
-//    if ($status == false) {
-//        $query = "INSERT INTO logs(timestamp,command,status)
-//                      VALUES('$timestamp','$command','úspech')";
-//    } //octave vratil nejake data
-//    else {
-//        $query = "INSERT INTO logs(timestamp,command,status,error_info)
-//                    VALUES('$timestamp','$command','error','nepodarilo sa vykonat prikaz')";
-//    }
-//    $db->exec($query);
+    global $db;
+    $timestamp = date("Y-m-d H:i:s");
+    $escapedCommand = addslashes($command);
+
+    $escapedCommand = str_replace("+", "\+", $escapedCommand);
+
+    try {
+        //prazdny vystup z octave
+        if ($status == false) {
+            $query = "INSERT INTO logs(timestamp,command,status)
+                      VALUES('$timestamp','$escapedCommand','úspech')";
+        } //octave vratil nejake data
+        else {
+            $query = "INSERT INTO logs(timestamp,command,status,error_info)
+                    VALUES('$timestamp','$escapedCommand','chyba','nepodarilo sa vykonať príkaz')";
+        }
+        $db->exec($query);
+    } catch (PDOException $e){}
+}
+
+//Statistika [Simona]
+function statistika($model){
+    global $db;
+    try {
+        $sql =  "UPDATE statistika SET pocet = pocet + 1 WHERE sk = ?";
+        $db->prepare($sql)->execute(array($model));
+    } catch (PDOException $e){
+    }
 }

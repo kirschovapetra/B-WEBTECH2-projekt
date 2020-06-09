@@ -25,6 +25,8 @@ $valid = ($key === $apiKey);
 
     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/fabric.js/1.5.0/fabric.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
+    <script src="js_scripts/general.js"></script>
     <script src="js_scripts/pendulum_scripts.js"></script>
 </head>
 
@@ -34,10 +36,13 @@ $valid = ($key === $apiKey);
     <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-center">
         <ul class="nav navbar-nav">
             <li class="nav-item"><a href="index.php" class="nav-link">DOMOV</a></li>
+            <li class="nav-item"><a href="command.php" class="nav-link">SPUSTIŤ PRÍKAZ</a></li>
             <li class="nav-item"><a href="ballbeam.php" class="nav-link">GULIČKA</a></li>
             <li class="nav-item"><a href="plane.php" class="nav-link">LIETADLO</a></li>
             <li class="active nav-item"><a href="pendulum.php" class="nav-link">KYVADLO</a></li>
             <li class="nav-item"><a href="damping.php" class="nav-link">AUTO</a></li>
+            <li class="nav-item"><a href="statistika.php" class="nav-link">ŠTATISTIKA</a></li>
+            <li class="nav-item"><a href="documentation.php" class="nav-link">DOKUMENTÁCIA</a></li>
             <li class="nav-item"><a href="pendulum_english.php" class="nav-link">EN</a></li>
         </ul>
     </nav>
@@ -100,7 +105,7 @@ $valid = ($key === $apiKey);
     </div>
 </footer>
 
-
+<!-- Api kluc -->
 <?php
 if (isset($_POST["apiKeySubmit"])){
     $key = $_POST["apiKey"];

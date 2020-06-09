@@ -23,18 +23,23 @@ $valid = ($key === $apiKey);
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+    <script src="js_scripts/general.js"></script>
     <script src="js_scripts/vehicleDamping.js"></script>
 </head>
 <body>
 <header class="navbar-light bg-light">
     <h1>VEHICLE DAMPING</h1>
     <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-center">
-        <ul class="nav navbar-nav">
+          <ul class="nav navbar-nav">
             <li class="nav-item"><a href="index_english.php" class="nav-link">HOME</a></li>
+            <li class="nav-item"><a href="command_english.php" class="nav-link">EXECUTE COMMAND</a></li>
             <li class="nav-item"><a href="ballbeam_english.php" class="nav-link">BALL</a></li>
             <li class="nav-item"><a href="plane_english.php" class="nav-link">PLANE</a></li>
             <li class="nav-item"><a href="pendulum_english.php" class="nav-link">PENDULUM</a></li>
             <li class="active nav-item"><a href="damping_english.php" class="nav-link">CAR</a></li>
+            <li class="nav-item"><a href="statistika_english.php" class="nav-link">STATISTIC</a></li>
+            <li class="nav-item"><a href="documentation_english.php" class="nav-link">DOCUMENTATION</a></li>
             <li class="nav-item"><a href="damping.php" class="nav-link">SK</a></li>
         </ul>
     </nav>

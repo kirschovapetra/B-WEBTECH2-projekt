@@ -16,6 +16,7 @@ var jazyk;
 const MAX_R = 20;
 const ADRESA_API = "octave/api/animation";
 
+//nastavenia
 $(document).ready(function () {
     document.getElementById("graphs-container").style.display = "none";
     canvas = new fabric.Canvas('canvas');
@@ -60,11 +61,13 @@ $(document).ready(function () {
 
 });
 
+// spustenie animacie
 function funkcia2() {
     t = 0;
     interval = setInterval(animacia,50);
 }
 
+//animacia
 function animacia() {
 
     var i = Math.round(t/0.05);
@@ -119,7 +122,7 @@ function spracovanieR() {
             $('#positionInput').tooltip({trigger: "manual"}).tooltip('hide');
 
             $.get({
-                url: ADRESA_API + "?type=pendulum&position=" + r + "&newInput=" + JSON.stringify(newInput)+"&apiKey=1234",
+                url: ADRESA_API + "?type=pendulum&position=" + r + "&newInput=" + JSON.stringify(newInput)+"&apiKey=" + apiKey,
                 success: function (data) {
                     // console.log(data);
 
@@ -194,18 +197,5 @@ function spracovanieR() {
             //tooltip sa zobrazi ked sa zadaju nespravne hodnoty
             $('#positionInput').tooltip('show');
         }
-    }
-}
-
-function toggleVisibility(show,target) {
-    var targets = document.getElementsByClassName(target);
-
-    if (show){
-        for (var i = 0; i < targets.length; i++)
-            targets[i].style.visibility="visible";
-    }
-    else {
-        for (var i = 0; i < targets.length; i++)
-            targets[i].style.visibility="hidden";
     }
 }
