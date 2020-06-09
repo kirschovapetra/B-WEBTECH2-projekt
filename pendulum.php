@@ -65,7 +65,7 @@ $valid = ($key === $apiKey);
 
         <div class="form-group">
             <label for="position" class="control-label"><b>Poloha kyvadla (0 - 20):</b> </label>
-            <input class="form-control" type="text" name="position" id="positionInput" value="0"  data-placement="bottom" title="Platné hodnoty: 0 - 20" onchange="spracovanieR()">
+            <input class="form-control" type="number" name="position" id="positionInput" value="0"  data-placement="bottom" title="Platné hodnoty: 0 - 20" onchange="spracovanieR()">
         </div>
         <div class="form-group">
             <div class="checkbox-inline">
