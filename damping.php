@@ -38,6 +38,7 @@ $valid = ($key === $apiKey);
             <li class="nav-item"><a href="pendulum.php" class="nav-link">KYVADLO</a></li>
             <li class="active nav-item"><a href="damping.php" class="nav-link">AUTO</a></li>
             <li class="nav-item"><a href="statistika.php" class="nav-link">ŠTATISTIKA</a></li>
+            <li class="nav-item"><a href="documentation.php" class="nav-link">DOKUMENTÁCIA</a></li>
             <li class="nav-item"><a href="damping_english.php" class="nav-link">EN</a></li>
         </ul>
     </nav>

@@ -38,6 +38,7 @@ require "config.php";
                     <li class="nav-item"><a href="pendulum_english.php" class="nav-link">PENDULUM</a></li>
                     <li class="nav-item"><a href="damping_english.php" class="nav-link">CAR</a></li>
                     <li class="nav-item"><a href="statistika_english.php" class="nav-link">STATISTIC</a></li>
+                    <li class="nav-item"><a href="documentation_english.php" class="nav-link">DOCUMENTATION</a></li>
                     <li class="nav-item"><a href="index.php" class="nav-link">SK</a></li>
                 </ul>
             </nav>
@@ -50,6 +51,94 @@ require "config.php";
         </div>
 
         <hr>
+
+        <h3 class="text-center mt-5">Task division</h3>
+        <div class="d-flex justify-content-center mt-3 mb-5">
+            <table class="table table-bordered" style="width:70%">
+                <thead class="thead-light">
+                <tr>
+                    <th></th>
+                    <th>Simona Lopatniková</th>
+                    <th>Petra Kirschová</th>
+                    <th>Veronika Szabóová</th>
+                    <th>Matúš Hudák</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td class="description">Api</td>
+                    <td class="check">&#10004;</td>
+                    <td class="check">&#10004;</td>
+                    <td class="check">&#10004;</td>
+                    <td class="check">&#10004;</td>
+                </tr>
+                <tr>
+                    <td class="description">Animation - ball and beam</td>
+                    <td></td>
+                    <td class="check">&#10004;</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="description">Animation - plane</td>
+                    <td></td>
+                    <td></td>
+                    <td class="check">&#10004;</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="description">Animation - pendulum</td>
+                    <td class="check">&#10004;</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="description">Animation - car</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="check">&#10004;</td>
+                </tr>
+                <tr>
+                    <td class="description">Octave command execution</td>
+                    <td></td>
+                    <td class="check">&#10004;</td>
+                    <td></td>
+                    <td class="check">&#10004;</td>
+                </tr>
+                <tr>
+                    <td class="description">Statistics + send e-mail</td>
+                    <td class="check">&#10004;</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="description">Logging + export logs to csv, pdf</td>
+                    <td></td>
+                    <td class="check">&#10004;</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="description">Api description + export to pdf</td>
+                    <td></td>
+                    <td></td>
+                    <td class="check">&#10004;</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="description">Technical documentation</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
 
 
 

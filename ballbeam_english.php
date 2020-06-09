@@ -40,6 +40,7 @@ $valid = ($key === $apiKey);
                     <li class="nav-item"><a href="pendulum_english.php" class="nav-link">PENDULUM</a></li>
                     <li class="nav-item"><a href="damping_english.php" class="nav-link">CAR</a></li>
                     <li class="nav-item"><a href="statistika_english.php" class="nav-link">STATISTIC</a></li>
+                    <li class="nav-item"><a href="documentation_english.php" class="nav-link">DOCUMENTATION</a></li>
                     <li class="nav-item"><a href="ballbeam.php" class="nav-link">SK</a></li>
                 </ul>
             </nav>
