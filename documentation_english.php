@@ -1,4 +1,4 @@
-<!-- uvodna stranka - EN -->
+<!-- uvodna stranka - EN [Simona]-->
 
 <?php
 require "config.php";
@@ -6,7 +6,7 @@ require "config.php";
 ?>
 
 <!DOCTYPE html>
-<html lang="sk">
+<html lang="en">
 <head>
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- css -->
@@ -44,7 +44,61 @@ require "config.php";
     </nav>
 </header>
 
-TODO
+<div class="text">
+    <u>Authors:</u>
+    <ul>
+        <li>Petra Kirschová</li>
+        <li>Simona Lopatniková</li>
+        <li>Veronika Szabóová</li>
+        <li>Matúš Hudák</li>
+    </ul>
+    <p>Github repository: <a href="https://github.com/pepak1234/webtech2">HERE</a></p>
+
+    <u>Sendmail installation:</u> <br>
+    <code>sudo apt-get install sendmail</code><br>
+    <code>sudo sendmailconfig</code><br>
+
+    <br<p><u>Úprava/etc/hosts</u></p>
+    <p>127.0.0.1 localhost <span class="zvyrazni">localhost.localdomain os-webtech3-1</span></p>
+
+    <u>Octave installation</u><br>
+    <code>sudo apt install octave liboctave-dev</code><br>
+    <code>liboctave-dev is required to install packages from octave forge</code><br>
+
+    <br><p><u>Animations:</u></p><br>
+    <p><b>Inverted Pendulum:</b></p>
+    <ul>
+        <li>input: required new position of the pendulum r</li>
+        <li>output: current position of the pendulum x (:, 1)</li>
+        <li>current pendulum angle (vertical bar inclination - angle in radians) x (:, 3)</li>
+    </ul>
+    <p><u>More details: </u> <a href="http://ctms.engin.umich.edu/CTMS/index.php?example=InvertedPendulum&section=SystemModeling">HERE</a></p>
+
+    <p><b>Ball:</b></p>
+    <ul>
+        <li>input: required new position of the ball on the rod r</li>
+        <li>output: current ball position N*x (:,1)</li>
+        <li>current bar inclination (angle in radians) x(:,3)</li>
+    </ul>
+    <p><u>More details: </u> <a href="http://ctms.engin.umich.edu/CTMS/index.php?example=Suspension&section=SystemModeling">HERE</a></p>
+
+    <p><b>Vehicle damping</b></p>
+    <ul>
+        <li>input: required height of the jump obstacle r</li>
+        <li>output: current vehicle position x(:,1) </li>
+        <li>current wheel position x(:,3)</li>
+    </ul>
+    <p><u>More details: </u> <a href="http://ctms.engin.umich.edu/CTMS/index.php?example=BallBeam&section=SystemModeling">HERE</a></p>
+
+    <p><b>Plane: </b></p>
+    <ul>
+        <li>input: required new aircraft pitch r</li>
+        <li>output: current aircraft pitch x(:,3)</li>
+        <li>current tilt of the rear flap r*ones(size(t))*N-x*K'</li>
+    </ul>
+    <p><u>More details: </u> <a href="http://ctms.engin.umich.edu/CTMS/index.php?example=AircraftPitch&section=SystemModeling">HERE</a></p>
+</div>
+
 
 <footer class="page-footer font-small mt-5 bg-light">
     <div class="footer-copyright text-center py-3">

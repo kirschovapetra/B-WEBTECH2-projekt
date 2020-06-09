@@ -60,7 +60,7 @@ $valid = ($key === $apiKey);
     <div class="form-inline">
         <label for="position" class="control-label"><b>Enter command</b> </label>
         <input  style="width:100%" class="form-control" type="text"  id="formularId" >
-        <button class="btn btn-primary ml-1" onclick="getValue()">Execute command</button>
+        <button class="btn btn-primary ml-1" onclick="getValue('en')">Execute command</button>
     </div>
 </div>
 
