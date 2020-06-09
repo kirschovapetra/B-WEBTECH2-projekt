@@ -52,7 +52,7 @@ require "config.php";
         <li>Veronika Szabóová</li>
         <li>Matúš Hudák</li>
     </ul>
-    <p>Github repository: <a href="https://github.com/pepak1234/webtech2">TU</a></p>
+    <p>Github repository: <a href="https://github.com/pepak1234/webtech2">HERE</a></p>
 
     <u>Sendmail installation:</u> <br>
     <code>sudo apt-get install sendmail</code><br>
@@ -72,7 +72,7 @@ require "config.php";
         <li>output: current position of the pendulum x (:, 1)</li>
         <li>current pendulum angle (vertical bar inclination - angle in radians) x (:, 3)</li>
     </ul>
-    <p><u>More details: </u> <a href="http://ctms.engin.umich.edu/CTMS/index.php?example=InvertedPendulum&section=SystemModeling">TU</a></p>
+    <p><u>More details: </u> <a href="http://ctms.engin.umich.edu/CTMS/index.php?example=InvertedPendulum&section=SystemModeling">HERE</a></p>
 
     <p><b>Ball:</b></p>
     <ul>
@@ -80,7 +80,7 @@ require "config.php";
         <li>output: current ball position N*x (:,1)</li>
         <li>current bar inclination (angle in radians) x(:,3)</li>
     </ul>
-    <p><u>More details: </u> <a href="http://ctms.engin.umich.edu/CTMS/index.php?example=Suspension&section=SystemModeling">TU</a></p>
+    <p><u>More details: </u> <a href="http://ctms.engin.umich.edu/CTMS/index.php?example=Suspension&section=SystemModeling">HERE</a></p>
 
     <p><b>Vehicle damping</b></p>
     <ul>
@@ -88,7 +88,7 @@ require "config.php";
         <li>output: current vehicle position x(:,1) </li>
         <li>current wheel position x(:,3)</li>
     </ul>
-    <p><u>More details: </u> <a href="http://ctms.engin.umich.edu/CTMS/index.php?example=BallBeam&section=SystemModeling">TU</a></p>
+    <p><u>More details: </u> <a href="http://ctms.engin.umich.edu/CTMS/index.php?example=BallBeam&section=SystemModeling">HERE</a></p>
 
     <p><b>Plane: </b></p>
     <ul>
@@ -96,7 +96,7 @@ require "config.php";
         <li>output: current aircraft pitch x(:,3)</li>
         <li>current tilt of the rear flap r*ones(size(t))*N-x*K'</li>
     </ul>
-    <p><u>More details: </u> <a href="http://ctms.engin.umich.edu/CTMS/index.php?example=AircraftPitch&section=SystemModeling">TU</a></p>
+    <p><u>More details: </u> <a href="http://ctms.engin.umich.edu/CTMS/index.php?example=AircraftPitch&section=SystemModeling">HERE</a></p>
 </div>
 
 
