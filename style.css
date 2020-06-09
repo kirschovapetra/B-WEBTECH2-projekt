@@ -35,3 +35,7 @@ nav {
     width: 30%;
 }
 
+.check {
+    text-align: center;
+}
+.description{font-weight: bold;}

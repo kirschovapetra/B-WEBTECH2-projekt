@@ -37,11 +37,11 @@
                     <li class="nav-item"><a href="pendulum.php" class="nav-link">KYVADLO</a></li>
                     <li class="nav-item"><a href="damping.php" class="nav-link">AUTO</a></li>
                     <li class="nav-item"><a href="statistika.php" class="nav-link">ŠTATISTIKA</a></li>
+                    <li class="nav-item"><a href="documentation.php" class="nav-link">DOKUMENTÁCIA</a></li>
                     <li class="nav-item"><a href="index_english.php" class="nav-link">EN</a></li>
                 </ul>
             </nav>
         </header>
-
 
 
         <h3 class="text-center mt-5">Export logov</h3>
@@ -50,6 +50,95 @@
             <a href="export/exportToPDF.php?lang=sk"> <input type="submit" class="btn btn-primary" name="exportPDF" id="exportPDF" value="Export logov do PDF"></a>
         </div>
 
+        <hr>
+
+        <h3 class="text-center mt-5">Rozdelenie úloh</h3>
+        <div class="d-flex justify-content-center mt-3 mb-5">
+            <table class="table table-bordered" style="width:70%">
+                <thead class="thead-light">
+                    <tr>
+                        <th></th>
+                        <th>Simona Lopatniková</th>
+                        <th>Petra Kirschová</th>
+                        <th>Veronika Szabóová</th>
+                        <th>Matúš Hudák</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td class="description">Api</td>
+                    <td class="check">&#10004;</td>
+                    <td class="check">&#10004;</td>
+                    <td class="check">&#10004;</td>
+                    <td class="check">&#10004;</td>
+                </tr>
+                <tr>
+                    <td class="description">Animácia - gulička</td>
+                    <td></td>
+                    <td class="check">&#10004;</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="description">Animácia - lietadlo</td>
+                    <td></td>
+                    <td></td>
+                    <td class="check">&#10004;</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="description">Animácia - kyvadlo</td>
+                    <td class="check">&#10004;</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="description">Animácia - auto</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="check">&#10004;</td>
+                </tr>
+                <tr>
+                    <td class="description">Spustenie octave príkazu</td>
+                    <td></td>
+                    <td class="check">&#10004;</td>
+                    <td></td>
+                    <td class="check">&#10004;</td>
+                </tr>
+                <tr>
+                    <td class="description">Štatistika + odoslanie e-mailu</td>
+                    <td class="check">&#10004;</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="description">Zápis logov do databázy + export logov do csv, pdf</td>
+                    <td></td>
+                    <td class="check">&#10004;</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="description">Popis api + export do pdf</td>
+                    <td></td>
+                    <td></td>
+                    <td class="check">&#10004;</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="description">Technická dokumentácia</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                </tbody>
+            </table>
+
+         </div>
 
 
         <footer class="page-footer font-small mt-5 bg-light">
