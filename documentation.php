@@ -1,4 +1,4 @@
-<!-- uvodna stranka -->
+<!-- uvodna stranka [Simona] -->
 
 <?php
 
@@ -43,7 +43,65 @@
     </nav>
 </header>
 
-TODO
+<div class="text mt-4">
+    <u>Autori:</u>
+        <ul>
+            <li>Petra Kirschová</li>
+            <li>Simona Lopatniková</li>
+            <li>Veronika Szabóová</li>
+            <li>Matúš Hudák</li>
+        </ul>
+     <p>Github repozitár: <a href="https://github.com/pepak1234/webtech2">TU</a></p>
+
+    <u>Inštalácia sendmail:</u> <br>
+    <code>sudo apt-get install sendmail</code><br>
+    <code>sudo sendmailconfig</code><br>
+
+    <br><u>Úprava /etc/hosts:</u><br>
+    127.0.0.1 localhost <span class="zvyrazni">localhost.localdomain os-webtech3-1</span><br>
+
+    <br><u>Inštalácia Octave: </u><br>
+    <code>sudo apt install octave</code><br>
+
+    <br><u>Inštalácia liboctave-dev (potrebné pre inštaláciu packageov z octave forge): </u><br>
+    <code>sudo apt install liboctave-dev</code><br>
+
+    <br><u>Inštalácia control package: </u><br>
+    <code>sudo pkg install -global -forge control</code><br>
+
+    <br><p><u>Animácie:</u></p>
+    <p><b>Inverzné kyvadlo:</b></p>
+    <ul>
+        <li>vstup: požadovaná nová poloha kyvadla r</li>
+        <li>výstup: aktuálna pozícia kyvadla x(:,1)</li>
+        <li>aktuálny uhol kyvadla (náklon vertikálnej tyče – uhol v radiánoch) x(:,3)</li>
+    </ul>
+    <p><u>Podrobnejšie: </u> <a href="http://ctms.engin.umich.edu/CTMS/index.php?example=InvertedPendulum&section=SystemModeling">TU</a></p>
+
+    <p><b>Gulička na tyči:</b></p>
+    <ul>
+        <li>vstup: požadovaná nová poloha guličky na tyči r</li>
+        <li>výstup: aktuálna pozícia guličky N*x(:,1)</li>
+        <li>aktuálny náklon tyče (uhol v radiánoch)  x(:,3)</li>
+    </ul>
+    <p><u>Podrobnejšie: </u> <a href="http://ctms.engin.umich.edu/CTMS/index.php?example=BallBeam&section=SystemModeling">TU</a></p>
+
+    <p><b>Tlmič auta:</b></p>
+    <ul>
+        <li>vstup: požadovaná výška skokovej prekážky r</li>
+        <li>výstup: aktuálna pozícia vozidla x(:,1) </li>
+        <li>aktuálna pozícia kolesa x(:,3)</li>
+    </ul>
+    <p><u>Podrobnejšie: </u> <a href="http://ctms.engin.umich.edu/CTMS/index.php?example=Suspension&section=SystemModeling">TU</a></p>
+
+    <p><b>Náklon lietadla: </b></p>
+    <ul>
+        <li>vstup: požadovaný nový náklon lietadla r</li>
+        <li>výstup: aktuálny náklon lietadla x(:,3)</li>
+        <li>aktuálny náklon zadnej klapky r*ones(size(t))*N-x*K'</li>
+    </ul>
+    <p><u>Podrobnejšie: </u> <a href="http://ctms.engin.umich.edu/CTMS/index.php?example=AircraftPitch&section=SystemModeling">TU</a></p>
+</div>
 
 <footer class="page-footer font-small mt-5 bg-light">
     <div class="footer-copyright text-center py-3">

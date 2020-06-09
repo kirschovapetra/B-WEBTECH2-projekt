@@ -115,16 +115,16 @@ function prepniZobrazenie(id){
 function spracovanieR() {
     var apiKey = document.getElementById("apiKey").value;
     var r = parseFloat(document.getElementById("positionInput").value);
-    // console.log(ADRESA_API + "?type=pendulum&position=" + r + "&newInput=" + JSON.stringify(newInput));
+
     if(!isNaN(r)){
         if( r <= MAX_R && r >= 0) {
 
             $('#positionInput').tooltip({trigger: "manual"}).tooltip('hide');
 
+            console.log(ADRESA_API + "?type=pendulum&position=" + r + "&newInput=" + JSON.stringify(newInput)+"&apiKey=" + apiKey);
             $.get({
                 url: ADRESA_API + "?type=pendulum&position=" + r + "&newInput=" + JSON.stringify(newInput)+"&apiKey=" + apiKey,
                 success: function (data) {
-                    // console.log(data);
 
                     labels = data.times;
                     pozicie = data.positions;

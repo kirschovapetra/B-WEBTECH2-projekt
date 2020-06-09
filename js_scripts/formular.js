@@ -1,5 +1,4 @@
-// // Matus formular
-
+/******************************* zadavanie prikazu do Octave [Matus, Petra] ******************************/
 var outPut;
 var input;
 
@@ -17,8 +16,6 @@ function getValue(lang) {
             //nacitanie dat z octave
 
             outPut = data.response;
-            // console.log(outPut);
-
 
             var toPrint = "";
 
@@ -26,7 +23,6 @@ function getValue(lang) {
                 toPrint += outPut[i]+"<br>";
             }
             if (lang === 'en'){
-                var n = outPut.length;
                 if(outPut.length === 0){
                     toPrint = "You entered incorrect command";
                 }
@@ -35,7 +31,6 @@ function getValue(lang) {
                     toPrint = "Zadali ste nesprávny príkaz";
                 }
             }
-            console.log(outPut);
             document.getElementById("report").innerHTML = "<pre>"+toPrint+"</pre>";
         }
     });

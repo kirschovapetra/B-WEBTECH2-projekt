@@ -1,5 +1,5 @@
 <?php
-//export tabulky "logs" do csv [Petra]
+/******************************* export tabulky "logs" do csv [Petra] ******************************/
 
 include '../config.php';
 
@@ -21,10 +21,10 @@ if (isset($language)) {
 
         //zapis riadkov do csv
         foreach($results as $result){
-            $encodedStatus = iconv('UTF-8', 'windows-1252', $result["status"]);
-            $encodedCommand = iconv('UTF-8', 'windows-1252', $result["command"]);
+            // kodovanie ISO-8859-2
+            $encodedCommand = iconv('UTF-8', 'ISO-8859-2', $result["command"]);
 
-            $row = array($result['id'], $result['timestamp'], $encodedCommand, $encodedStatus, $result['error_info']);
+            $row = array($result['id'], $result['timestamp'], $encodedCommand, $result["status"], $result["error_info"]);
             fputcsv($f, $row, ";");
         }
 

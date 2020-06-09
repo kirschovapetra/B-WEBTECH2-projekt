@@ -1,4 +1,4 @@
-<!-- uvodna stranka -->
+<!-- spustenie octave prikazu [Matus. Petra] -->
 
 <?php
 require "config.php";

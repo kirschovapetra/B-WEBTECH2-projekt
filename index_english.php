@@ -1,4 +1,4 @@
-<!-- uvodna stranka - EN -->
+<!-- uvodna stranka (en) [Veronika, Petra] -->
 
 <?php
 require "config.php";
@@ -50,6 +50,24 @@ require "config.php";
             <a href="export/exportToPDF.php?lang=en"> <input type="submit" class="btn btn-primary" name="exportPDF" id="exportPDF" value="Export logs to PDF"></a>
         </div>
 
+        <hr>
+        <div class="d-flex justify-content-center mt-3 mb-5">
+            <p>All types of the animations have their own type what helps us determine which animation do we want to run.
+                <br>
+                These commands run once we change the starting number. If we open Inspect in our browser the logs from the commands can be found under the Console tab.
+                <br>
+                Example after changing the starting number to 20:<br>
+                <i>Ball, Pendulum, Car</i><br>
+                <b>octave/api/animation?type=ballbeam&position=0.2&newInput=[0,0,0,0]&apiKey=Strong12Key</b><br>
+                Difference between the commands is the part after type=. In case of the balls you can see on the example it is set to ballbeam,<br> in case of pendulum it will be pendulum and in case of the car it will be set to car.<br> The number we entered to the field is saved in the position, now we set it to 20 so position=0.2.
+                <br>
+                <i>Plane:</i><br>
+                <b>octave/api/animation?type=plane&position=-0.2&newInput=[0,0,0]&apiKey=Strong12Key</b><br>
+                The plane is a little bit different since we wanted to have positive numbers when the plane is taking off and negative numbers when going down<br> so we needed to change them up, that is why the 20 we filled into the field is set to -0.2 in the command.
+                <br><br>
+                <b>octave/api/command?input=1%2B1&apiKey=Strong12Key</b><br>
+                Function returns result from octave after executing the specified command that was set in the field. <br>In the example you can see we put 1+1 into the field and pressed Execute command. The result was ans=2.</p>
+        </div>
         <hr>
 
         <h3 class="text-center mt-5">Task division</h3>
@@ -130,7 +148,7 @@ require "config.php";
                 </tr>
                 <tr>
                     <td class="description">Technical documentation</td>
-                    <td></td>
+                    <td class="check">&#10004;</td>
                     <td></td>
                     <td></td>
                     <td></td>
