@@ -4,6 +4,7 @@ Sima
 - [x] kyvadlo
 - [x] api
 - [x] statistika + email
+- [x] dokumentacia
 
 Petra
 - [x] gulicka 
