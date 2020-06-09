@@ -10,6 +10,7 @@ Petra
 - [x] gulicka 
 - [x] api 
 - [x] log, csv,pdf 
+- [x] spustenie octave prikazu
 
 Veronika
 - [x] lietadlo 
@@ -20,4 +21,4 @@ Veronika
 Matus
 - [x] automobil
 - [x] api
-- [x] formular
+- [x] spustenie octave prikazu
