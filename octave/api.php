@@ -279,7 +279,7 @@ function logStatus($command, $status)    {
         //prazdny vystup z octave
         if ($status == false) {
             $query = "INSERT INTO logs(timestamp,command,status)
-                      VALUES('$timestamp','$escapedCommand','uspech')";
+                      VALUES('$timestamp','$escapedCommand','úspech')";
         } //octave vratil nejake data
         else {
             $query = "INSERT INTO logs(timestamp,command,status,error_info)
