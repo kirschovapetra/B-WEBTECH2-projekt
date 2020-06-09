@@ -4,6 +4,7 @@ $key = isset($_POST['apiKey'])? $_POST['apiKey'] : "";
 
 $valid = ($key === $apiKey);
 ?>
+<!--auto Matus-->
 <!DOCTYPE html>
 <html>
 <head>

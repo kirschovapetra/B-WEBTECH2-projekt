@@ -1,4 +1,4 @@
-/************************************* Damping [Petra] *************************************/
+/************************************* Damping [Matus] *************************************/
 
 var times = [];
 var carPositions = [];
@@ -146,7 +146,7 @@ function move(){
 
     if (!alreadyPlayed) {
         //auto
-        var carPosition = carPositions[index] * 21 +38 ; //hodnota z octave upravena aby sa zmestila do svg, 76.30546 poloha y osi
+        var carPosition = carPositions[index] * 21 +38 ; //hodnota z octave upravena aby sa zmestila do svg, 38 poloha y osi
         var caretPosition2 = carPositions[index] * 21 +32;
         //kolesa
         var wheelPosition = wheelPositions[index] * 210 + 76.30546; //hodnota z octave
