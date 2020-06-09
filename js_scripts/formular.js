@@ -3,7 +3,7 @@
 var outPut;
 var input;
 
-function getValue() {
+function getValue(lang) {
     var endpoint = "octave/api/command";
     var apiKey = document.getElementById("apiKey").value;
     //zakodovanie vstupu
@@ -17,14 +17,25 @@ function getValue() {
             //nacitanie dat z octave
 
             outPut = data.response;
-            //console.log(outPut);
+            // console.log(outPut);
+
 
             var toPrint = "";
 
             for (var i in outPut){
                 toPrint += outPut[i]+"<br>";
             }
-
+            if (lang === 'en'){
+                var n = outPut.length;
+                if(outPut.length === 0){
+                    toPrint = "You entered incorrect command";
+                }
+            }else{
+                if (outPut.length === 0){
+                    toPrint = "Zadali ste nesprávny príkaz";
+                }
+            }
+            console.log(outPut);
             document.getElementById("report").innerHTML = "<pre>"+toPrint+"</pre>";
         }
     });
